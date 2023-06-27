@@ -19,44 +19,47 @@ extension TimeBoxingTextStyle on TextStyle {
     );
   }
 
-  static TextStyle headline1() {
-    return const TextStyle(
+  static TextStyle headline1(Color color) {
+    return TextStyle(
       fontSize: 32,
       fontWeight: FontWeight.bold,
       letterSpacing: -1.5,
       height: 1.25,
       fontFamily: headlineFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle headline2() {
-    return const TextStyle(
+  static TextStyle headline2(Color color) {
+    return TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.bold,
       letterSpacing: -0.5,
       height: 1.25,
       fontFamily: headlineFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle headline3() {
-    return const TextStyle(
+  static TextStyle headline3(Color color) {
+    return TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       letterSpacing: 0,
       height: 1.25,
       fontFamily: headlineFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle headline4() {
-    return const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0,
-      height: 1.25,
-      fontFamily: headlineFontFamily,
-    );
+  static TextStyle headline4(Color color) {
+    return TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0,
+        height: 1.25,
+        fontFamily: headlineFontFamily,
+        color: color);
   }
 
   // Paragraph Text Style
@@ -72,49 +75,54 @@ extension TimeBoxingTextStyle on TextStyle {
     }
   }
 
-  static TextStyle paragraph1(TimeBoxingFontWeight fontWeight) {
+  static TextStyle paragraph1(TimeBoxingFontWeight fontWeight, Color color) {
     return TextStyle(
       fontSize: 16,
       fontWeight: _getFontWeight(fontWeight),
       letterSpacing: 0.2,
       height: 1.25,
       fontFamily: paragraphFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle paragraph2(TimeBoxingFontWeight fontWeight) {
+  static TextStyle paragraph2(TimeBoxingFontWeight fontWeight, Color color) {
     return TextStyle(
       fontSize: 14,
       fontWeight: _getFontWeight(fontWeight),
       height: 1.25,
       fontFamily: paragraphFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle paragraph3(TimeBoxingFontWeight fontWeight) {
+  static TextStyle paragraph3(TimeBoxingFontWeight fontWeight, Color color) {
     return TextStyle(
       fontSize: 12,
       fontWeight: _getFontWeight(fontWeight),
       height: 1.25,
       fontFamily: paragraphFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle paragraph4(TimeBoxingFontWeight fontWeight) {
+  static TextStyle paragraph4(TimeBoxingFontWeight fontWeight, Color color) {
     return TextStyle(
       fontSize: 10,
       fontWeight: _getFontWeight(fontWeight),
       height: 1.25,
       fontFamily: paragraphFontFamily,
+      color: color,
     );
   }
 
-  static TextStyle paragraph5(TimeBoxingFontWeight fontWeight) {
+  static TextStyle paragraph5(TimeBoxingFontWeight fontWeight, Color color) {
     return TextStyle(
       fontSize: 8,
       fontWeight: _getFontWeight(fontWeight),
       height: 1.25,
       fontFamily: paragraphFontFamily,
+      color: color,
     );
   }
 }
