@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
@@ -12,7 +13,11 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.red,
+      unselectedItemColor: Colors.black,
+      selectedLabelStyle:
+          TimeBoxingTextStyle.paragraph5(TimeBoxingFontWeight.bold),
+      unselectedLabelStyle:
+          TimeBoxingTextStyle.paragraph5(TimeBoxingFontWeight.bold),
       items: const [
         BottomNavigationBarItem(
             label: 'Home', icon: Icon(Icons.home, color: Colors.black)),
@@ -22,9 +27,7 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
         BottomNavigationBarItem(
             label: 'Create', icon: Icon(Icons.create, color: Colors.black))
         // BottomNavigationBarItem(
-        //   label: 'Love',
-        //   icon: Icon(Icons.favorite, color: Colors.black)
-        // )
+        //     label: 'Love', icon: Icon(Icons.favorite, color: Colors.black))
       ],
     );
   }
