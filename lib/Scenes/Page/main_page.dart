@@ -10,7 +10,7 @@ class MainPage extends StatelessWidget {
       bottomNavigationBar: const TimeboxingBottomNavigationBar(),
       body: Container(
         alignment: Alignment.center,
-        child: const Text('Galih kontol kecil'),
+        child: const Text('NOPAL kontol kecil'),
       ),
     );
   }
