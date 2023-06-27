@@ -8,7 +8,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        child: Text('Jordy Pinix Kecil Kontolnya'),
+        child: Text('Jordy ga punya memeck'),
       ),
     );
   }
