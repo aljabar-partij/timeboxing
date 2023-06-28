@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
