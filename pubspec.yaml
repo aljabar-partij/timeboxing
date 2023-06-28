@@ -56,6 +56,8 @@ flutter:
       fonts:
         - asset: fonts/Roboto-Bold.ttf
           weight: 700
+        - asset: fonts/Roboto-Light.ttf
+          weight: 300
     - family: NunitoSans
       fonts:
         - asset: fonts/NunitoSans-Bold.ttf
