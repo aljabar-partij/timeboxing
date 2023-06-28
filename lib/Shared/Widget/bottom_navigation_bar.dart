@@ -13,26 +13,42 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.black,
-      selectedLabelStyle: TimeBoxingTextStyle.paragraph5(
-        TimeBoxingFontWeight.bold,
-        TimeBoxingColors.text(TimeBoxingColorType.tint),
+      type: BottomNavigationBarType.fixed,
+      selectedIconTheme: IconThemeData(
+          color: TimeBoxingColors.primary50(
+        TimeBoxingColorType.shade,
+      )),
+      selectedItemColor: TimeBoxingColors.text(
+        TimeBoxingColorType.tint,
       ),
-      unselectedLabelStyle: TimeBoxingTextStyle.paragraph5(
-        TimeBoxingFontWeight.bold,
-        TimeBoxingColors.text(TimeBoxingColorType.tint),
+      unselectedItemColor: TimeBoxingColors.text(
+        TimeBoxingColorType.tint,
       ),
-      items: const [
+      items: [
         BottomNavigationBarItem(
-            label: 'Home', icon: Icon(Icons.home, color: Colors.black)),
+            label: 'Home',
+            icon: Icon(
+              Icons.home,
+              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            )),
         BottomNavigationBarItem(
             label: 'Settings',
-            icon: Icon(Icons.calendar_month, color: Colors.black)),
+            icon: Icon(
+              Icons.calendar_month,
+              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            )),
         BottomNavigationBarItem(
-            label: 'Create', icon: Icon(Icons.create, color: Colors.black))
-        // BottomNavigationBarItem(
-        //     label: 'Love', icon: Icon(Icons.favorite, color: Colors.black))
+            label: 'Create',
+            icon: Icon(
+              Icons.create,
+              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            )),
+        BottomNavigationBarItem(
+            label: 'Love',
+            icon: Icon(
+              Icons.favorite,
+              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            ))
       ],
     );
   }

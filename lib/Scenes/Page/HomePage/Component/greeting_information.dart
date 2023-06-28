@@ -13,6 +13,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: TimeBoxingColors.primary70(TimeBoxingColorType.tint),
       padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,11 +38,15 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
             ],
           ),
           const Spacer(),
-          const Row(
+          Row(
             children: [
-              Icon(Icons.close),
+              Icon(
+                Icons.close,
+                color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
+              ),
               SizedBox(width: 12),
-              Icon(Icons.close),
+              Icon(Icons.close,
+                  color: TimeBoxingColors.primary60(TimeBoxingColorType.shade)),
             ],
           )
         ],
