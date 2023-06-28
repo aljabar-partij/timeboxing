@@ -44,7 +44,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
                 Icons.close,
                 color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Icon(Icons.close,
                   color: TimeBoxingColors.primary60(TimeBoxingColorType.shade)),
             ],
