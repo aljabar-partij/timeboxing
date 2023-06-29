@@ -2,6 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
+class GreetingsItem {
+  String username;
+  String greetingMessage;
+
+  GreetingsItem({
+    required this.username,
+    required this.greetingMessage,
+  });
+}
+
+final List<GreetingsItem> greetingitem = [
+  GreetingsItem(
+    username: 'JordyNoSkill',
+    greetingMessage: 'Have A Great Day Jord',
+  )
+];
+
 class TimeboxingGreetingInfo extends StatefulWidget {
   const TimeboxingGreetingInfo({super.key});
 
@@ -22,7 +39,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Greetings',
+                greetingitem[0].username,
                 style: TimeBoxingTextStyle.paragraph2(
                   TimeBoxingFontWeight.regular,
                   TimeBoxingColors.neutralBlack(),
@@ -30,7 +47,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
               ),
               const SizedBox(height: 4),
               Text(
-                'Username',
+                greetingitem[0].greetingMessage,
                 style: TimeBoxingTextStyle.headline4(
                   TimeBoxingFontWeight.bold,
                   TimeBoxingColors.neutralBlack(),
