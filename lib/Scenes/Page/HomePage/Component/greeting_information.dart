@@ -12,7 +12,7 @@ class GreetingsItem {
   });
 }
 
-final List<GreetingsItem> greetingitem = [
+final List<GreetingsItem> greetingItem = [
   GreetingsItem(
     username: 'JordyNoSkill',
     greetingMessage: 'Have A Great Day Jord',
