@@ -11,14 +11,12 @@ class HomePage extends StatefulWidget {
 class _MyWidgetState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TimeboxingGreetingInfo(),
-        ],
-      ),
+    return const Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TimeboxingGreetingInfo(),
+      ],
     );
   }
 }

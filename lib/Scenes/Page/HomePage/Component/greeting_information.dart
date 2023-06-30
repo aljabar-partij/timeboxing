@@ -12,7 +12,7 @@ class GreetingsItem {
   });
 }
 
-final List<GreetingsItem> greetingitem = [
+final List<GreetingsItem> greetingItems = [
   GreetingsItem(
     username: 'JordyNoSkill',
     greetingMessage: 'Have A Great Day Jord',
@@ -39,7 +39,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                greetingitem[0].username,
+                greetingItems[0].username,
                 style: TimeBoxingTextStyle.paragraph2(
                   TimeBoxingFontWeight.regular,
                   TimeBoxingColors.neutralBlack(),
@@ -47,7 +47,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
               ),
               const SizedBox(height: 4),
               Text(
-                greetingitem[0].greetingMessage,
+                greetingItems[0].greetingMessage,
                 style: TimeBoxingTextStyle.headline4(
                   TimeBoxingFontWeight.bold,
                   TimeBoxingColors.neutralBlack(),

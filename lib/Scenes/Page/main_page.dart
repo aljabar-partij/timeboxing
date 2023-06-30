@@ -7,12 +7,11 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: SafeArea(
-        minimum: EdgeInsets.fromLTRB(0, 24, 0, 0),
-        child: CupertinoTabBarApp(),
+    return const SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: CupertinoTabBarApp(),
+        body: HomePage(),
       ),
-      body: HomePage(),
     );
   }
 }
