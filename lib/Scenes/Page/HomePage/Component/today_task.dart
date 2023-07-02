@@ -13,10 +13,6 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: TimeBoxingColors.primary70(TimeBoxingColorType.tint), // harus dikasik state ada invitation apa enggak
-      color: TimeBoxingColors.neutralLotion(),
-      // padding: const EdgeInsets.fromLTRB(24, 8, 24, 8),
-      child: Container(
         padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
         decoration: BoxDecoration(
           color: TimeBoxingColors.neutralWhite(),
@@ -34,8 +30,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
             const Spacer(),
             const Icon(Icons.calendar_today),
           ],
-        ), //JANGAN LUPA DIHAPUS BUAT PENANDA DOANG
-      ),
-    );
+        ), //SEBELUM DEVELOP, ROW JANGAN LUPA DIHAPUS  KARENA HANYA BUAT PENANDA DOANG
+      );
   }
 }

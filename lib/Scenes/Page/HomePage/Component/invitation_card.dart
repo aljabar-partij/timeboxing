@@ -28,7 +28,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
           const Spacer(),
           const Icon(Icons.calendar_today),
         ],
-      ), //JANGAN LUPA DIHAPUS BUAT PENANDA DOANG
+      ), //SEBELUM DEVELOP, ROW JANGAN LUPA DIHAPUS  KARENA HANYA BUAT PENANDA DOANG
     );
   }
 }
