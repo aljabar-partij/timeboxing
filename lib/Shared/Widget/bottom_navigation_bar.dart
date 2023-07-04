@@ -3,7 +3,6 @@ import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 
-
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
 
@@ -17,7 +16,6 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.black,
       selectedLabelStyle: TimeBoxingTextStyle.paragraph5(
         TimeBoxingFontWeight.bold,
         TimeBoxingColors.text(TimeBoxingColorType.tint),
@@ -25,7 +23,7 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
       unselectedItemColor: TimeBoxingColors.text(
         TimeBoxingColorType.tint,
       ),
-      items: [
+      items: const [
         BottomNavigationBarItem(
             label: 'Home',
             icon: Padding(

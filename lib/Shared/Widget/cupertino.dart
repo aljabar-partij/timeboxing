@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/CalendarPage/calendar_page.dart';
 import 'package:timeboxing/Scenes/Page/CreationPage/creation_page.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/home_page.dart';
 import 'package:timeboxing/Scenes/Page/ProfilePage/profile_page.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 
 class TabBarItem {
   IconData iconData;
@@ -30,25 +30,25 @@ class CupertinoTabBarApp extends StatefulWidget {
 class _MyWidgetState extends State<CupertinoTabBarApp> {
   final List<TabBarItem> _tabItems = [
     TabBarItem(
-      iconData: CupertinoIcons.home,
+      iconData: TimeboxingIcons.home,
       title: 'Home',
       page: const HomePage(),
       iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
     ),
     TabBarItem(
-      iconData: CupertinoIcons.create,
+      iconData: TimeboxingIcons.plusCircle,
       title: 'Creation',
       page: const CreationPage(),
       iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
     ),
     TabBarItem(
-      iconData: CupertinoIcons.calendar,
+      iconData: TimeboxingIcons.calendar,
       title: 'Calendar',
       page: const CalendarPage(),
       iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
     ),
     TabBarItem(
-      iconData: CupertinoIcons.person,
+      iconData: TimeboxingIcons.person,
       title: 'profile',
       page: const ProfilePage(),
       iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
@@ -63,9 +63,13 @@ class _MyWidgetState extends State<CupertinoTabBarApp> {
         activeColor: TimeBoxingColors.text(TimeBoxingColorType.tint),
         items: _tabItems.map((item) {
           return BottomNavigationBarItem(
-            icon: Icon(
-              item.iconData,
-              color: item.iconColor,
+            icon: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(
+                item.iconData,
+                color: item.iconColor,
+                size: 16,
+              ),
             ),
             label: item.title,
           );
