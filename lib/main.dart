@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/onboarding_page.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 enum NavigationPage { sharedDesign, main }
 
-void main() {
+void main() async {
+  /// Do not remove this code below!!!
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// Do not remove this code below!!!
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
+
 
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
@@ -13,12 +16,11 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      selectedIconTheme: IconThemeData(
-          color: TimeBoxingColors.primary50(
-        TimeBoxingColorType.shade,
-      )),
-      selectedItemColor: TimeBoxingColors.text(
-        TimeBoxingColorType.tint,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.black,
+      selectedLabelStyle: TimeBoxingTextStyle.paragraph5(
+        TimeBoxingFontWeight.bold,
+        TimeBoxingColors.text(TimeBoxingColorType.tint),
       ),
       unselectedItemColor: TimeBoxingColors.text(
         TimeBoxingColorType.tint,
@@ -26,28 +28,44 @@ class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
       items: [
         BottomNavigationBarItem(
             label: 'Home',
-            icon: Icon(
-              Icons.home,
-              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(
+                TimeboxingIcons.home,
+                color: Colors.black,
+                size: 16,
+              ),
             )),
         BottomNavigationBarItem(
-            label: 'Settings',
-            icon: Icon(
-              Icons.calendar_month,
-              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            label: 'Creation',
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(
+                TimeboxingIcons.penCircle,
+                color: Colors.black,
+                size: 16,
+              ),
             )),
         BottomNavigationBarItem(
-            label: 'Create',
-            icon: Icon(
-              Icons.create,
-              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+            label: 'Calendar',
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(
+                TimeboxingIcons.calendar,
+                color: Colors.black,
+                size: 16,
+              ),
             )),
         BottomNavigationBarItem(
-            label: 'Love',
-            icon: Icon(
-              Icons.favorite,
-              color: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
-            ))
+            label: 'Profile',
+            icon: Padding(
+              padding: EdgeInsets.all(4.0),
+              child: Icon(
+                TimeboxingIcons.person,
+                color: Colors.black,
+                size: 16,
+              ),
+            )),
       ],
     );
   }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "23042009868",
+    "project_id": "timeboxing-aljabar",
+    "storage_bucket": "timeboxing-aljabar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23042009868:android:ee40c666b3ee034c1fb729",
+        "android_client_info": {
+          "package_name": "com.example.timeboxing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23042009868-7iqm5lk4r292em9qfdlsfnntti81293r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARMSOfqIQ-mvu2pjtEMJDdeVyTDM3uVY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23042009868-7iqm5lk4r292em9qfdlsfnntti81293r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

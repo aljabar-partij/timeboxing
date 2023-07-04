@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
 class GreetingsItem {
@@ -59,12 +60,14 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
           Row(
             children: [
               Icon(
-                Icons.close,
-                color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
+                TimeboxingIcons.alarm,
+                size: 16,
               ),
-              const SizedBox(width: 12),
-              Icon(Icons.close,
-                  color: TimeBoxingColors.primary60(TimeBoxingColorType.shade)),
+              SizedBox(width: 12),
+              Icon(
+                TimeboxingIcons.plusCircle,
+                size: 16,
+              ),
             ],
           )
         ],
