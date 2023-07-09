@@ -5,7 +5,7 @@ import 'package:timeboxing/Scenes/Page/HomePage/home_page.dart';
 import 'package:timeboxing/Scenes/Page/ProfilePage/profile_page.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
-import 'package:timeboxing/Shared/Widget/Model/tab_bar_item.dart';
+import 'package:timeboxing/Shared/Widget/BottomNavigationBar/Model/tab_bar_item.dart';
 
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
