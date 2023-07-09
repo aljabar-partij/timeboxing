@@ -2,23 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
-
-class GreetingsItem {
-  String username;
-  String greetingMessage;
-
-  GreetingsItem({
-    required this.username,
-    required this.greetingMessage,
-  });
-}
-
-final List<GreetingsItem> greetingItems = [
-  GreetingsItem(
-    username: 'JordyNoSkill',
-    greetingMessage: 'Have A Great Day Jord',
-  )
-];
+import 'package:timeboxing/Scenes/Page/HomePage/Model/greeting_info_model.dart';
 
 class TimeboxingGreetingInfo extends StatefulWidget {
   const TimeboxingGreetingInfo({super.key});
@@ -28,6 +12,10 @@ class TimeboxingGreetingInfo extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<TimeboxingGreetingInfo> {
+  final _greetingInfo = GreetingInfo(
+    greetingMessage: 'Haloo mas mas biasa bangun anjing',
+    username: 'JordyNoSkill',
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,25 +24,31 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                greetingItems[0].username,
-                style: TimeBoxingTextStyle.paragraph2(
-                  TimeBoxingFontWeight.regular,
-                  TimeBoxingColors.neutralBlack(),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  _greetingInfo.greetingMessage,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: TimeBoxingTextStyle.paragraph2(
+                    TimeBoxingFontWeight.regular,
+                    TimeBoxingColors.neutralBlack(),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                greetingItems[0].greetingMessage,
-                style: TimeBoxingTextStyle.headline4(
-                  TimeBoxingFontWeight.bold,
-                  TimeBoxingColors.neutralBlack(),
+                const SizedBox(height: 4),
+                Text(
+                  _greetingInfo.username,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  style: TimeBoxingTextStyle.headline4(
+                    TimeBoxingFontWeight.bold,
+                    TimeBoxingColors.neutralBlack(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           const Spacer(),
           Row(
