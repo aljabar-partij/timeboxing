@@ -1,3 +1,6 @@
+/// TimeboxingColors
+/// Copyright (C) 2023 by original authors @giloeng
+
 import 'package:flutter/material.dart';
 
 enum TimeBoxingColorType { tint, shade }

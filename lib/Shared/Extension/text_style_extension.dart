@@ -1,3 +1,6 @@
+/// TimeboxingTextStyle
+/// Copyright (C) 2023 by original authors @giloeng
+
 import 'package:flutter/material.dart';
 
 enum TimeBoxingFontWeight { bold, regular, light }
