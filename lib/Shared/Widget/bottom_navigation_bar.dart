@@ -1,7 +1,24 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:timeboxing/Scenes/Page/CalendarPage/calendar_page.dart';
+import 'package:timeboxing/Scenes/Page/CreationPage/creation_page.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/home_page.dart';
+import 'package:timeboxing/Scenes/Page/ProfilePage/profile_page.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
+
+class TabBarItem {
+  IconData iconData;
+  String title;
+  Widget page;
+  Color iconColor;
+
+  TabBarItem({
+    required this.iconData,
+    required this.title,
+    required this.page,
+    required this.iconColor,
+  });
+}
 
 class TimeboxingBottomNavigationBar extends StatefulWidget {
   const TimeboxingBottomNavigationBar({super.key});
@@ -11,60 +28,56 @@ class TimeboxingBottomNavigationBar extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<TimeboxingBottomNavigationBar> {
+  final List<TabBarItem> _tabItems = [
+    TabBarItem(
+      iconData: TimeboxingIcons.home,
+      title: 'Home',
+      page: const HomePage(),
+      iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+    ),
+    TabBarItem(
+      iconData: TimeboxingIcons.plusCircle,
+      title: 'Creation',
+      page: const CreationPage(),
+      iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+    ),
+    TabBarItem(
+      iconData: TimeboxingIcons.calendar,
+      title: 'Calendar',
+      page: const CalendarPage(),
+      iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+    ),
+    TabBarItem(
+      iconData: TimeboxingIcons.person,
+      title: 'profile',
+      page: const ProfilePage(),
+      iconColor: TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+    )
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.black,
-      selectedLabelStyle: TimeBoxingTextStyle.paragraph5(
-        TimeBoxingFontWeight.bold,
-        TimeBoxingColors.text(TimeBoxingColorType.tint),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        inactiveColor: TimeBoxingColors.text(TimeBoxingColorType.tint),
+        activeColor: TimeBoxingColors.text(TimeBoxingColorType.tint),
+        items: _tabItems.map((item) {
+          return BottomNavigationBarItem(
+            icon: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(
+                item.iconData,
+                color: item.iconColor,
+                size: 16,
+              ),
+            ),
+            label: item.title,
+          );
+        }).toList(),
       ),
-      unselectedItemColor: TimeBoxingColors.text(
-        TimeBoxingColorType.tint,
-      ),
-      items: const [
-        BottomNavigationBarItem(
-            label: 'Home',
-            icon: Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
-                TimeboxingIcons.home,
-                color: Colors.black,
-                size: 16,
-              ),
-            )),
-        BottomNavigationBarItem(
-            label: 'Creation',
-            icon: Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
-                TimeboxingIcons.penCircle,
-                color: Colors.black,
-                size: 16,
-              ),
-            )),
-        BottomNavigationBarItem(
-            label: 'Calendar',
-            icon: Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
-                TimeboxingIcons.calendar,
-                color: Colors.black,
-                size: 16,
-              ),
-            )),
-        BottomNavigationBarItem(
-            label: 'Profile',
-            icon: Padding(
-              padding: EdgeInsets.all(4.0),
-              child: Icon(
-                TimeboxingIcons.person,
-                color: Colors.black,
-                size: 16,
-              ),
-            )),
-      ],
+      tabBuilder: (BuildContext context, int index) {
+        return _tabItems[index].page;
+      },
     );
   }
 }
