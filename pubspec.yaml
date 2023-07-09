@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  firebase_core: ^2.14.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,8 @@ flutter:
       fonts:
         - asset: fonts/Roboto-Bold.ttf
           weight: 700
+        - asset: fonts/Roboto-Light.ttf
+          weight: 300
     - family: NunitoSans
       fonts:
         - asset: fonts/NunitoSans-Bold.ttf
@@ -64,6 +67,9 @@ flutter:
           weight: 500
         - asset: fonts/NunitoSans-Light.ttf
           weight: 300
+    - family: TimeboxingIcons
+      fonts: 
+        - asset: fonts/TimeboxingIcons.ttf
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

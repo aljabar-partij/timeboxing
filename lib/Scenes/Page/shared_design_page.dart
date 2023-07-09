@@ -65,23 +65,23 @@ class DummyPanel {
 final List<DummyTextStyle> headlineTexts = [
   DummyTextStyle(
       'Headline 1 Plus',
-      TimeBoxingTextStyle.headline1Plus(
+      TimeBoxingTextStyle.headline1Plus(TimeBoxingFontWeight.bold,
           TimeBoxingColors.text(TimeBoxingColorType.tint))),
   DummyTextStyle(
       'Headline 1',
-      TimeBoxingTextStyle.headline1(
+      TimeBoxingTextStyle.headline1(TimeBoxingFontWeight.bold,
           TimeBoxingColors.text(TimeBoxingColorType.tint))),
   DummyTextStyle(
       'Headline 2',
-      TimeBoxingTextStyle.headline2(
+      TimeBoxingTextStyle.headline2(TimeBoxingFontWeight.bold,
           TimeBoxingColors.text(TimeBoxingColorType.tint))),
   DummyTextStyle(
       'Headline 3',
-      TimeBoxingTextStyle.headline3(
+      TimeBoxingTextStyle.headline3(TimeBoxingFontWeight.bold,
           TimeBoxingColors.text(TimeBoxingColorType.tint))),
   DummyTextStyle(
       'Headline 4',
-      TimeBoxingTextStyle.headline4(
+      TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
           TimeBoxingColors.text(TimeBoxingColorType.tint))),
 ];
 
@@ -302,6 +302,7 @@ final List<DummyPanel> panels = [
                 Text(
                   "Headline Text",
                   style: TimeBoxingTextStyle.headline4(
+                      TimeBoxingFontWeight.bold,
                       TimeBoxingColors.text(TimeBoxingColorType.tint)),
                 ),
                 const Divider(
@@ -331,6 +332,7 @@ final List<DummyPanel> panels = [
                   Text(
                     "Paragraph Text",
                     style: TimeBoxingTextStyle.headline4(
+                        TimeBoxingFontWeight.bold,
                         TimeBoxingColors.text(TimeBoxingColorType.tint)),
                   ),
                   const Divider(
@@ -365,7 +367,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Primary Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(
@@ -439,7 +441,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Secondary Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(
@@ -513,7 +515,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Accent Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(
@@ -587,7 +589,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Text Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(
@@ -661,7 +663,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Neutral Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(
@@ -697,7 +699,7 @@ final List<DummyPanel> panels = [
           ),
           Text(
             'Rainbow Color',
-            style: TimeBoxingTextStyle.headline4(
+            style: TimeBoxingTextStyle.headline4(TimeBoxingFontWeight.bold,
                 TimeBoxingColors.text(TimeBoxingColorType.tint)),
           ),
           const Divider(

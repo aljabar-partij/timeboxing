@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
 class TimeboxingGreetingInfo extends StatefulWidget {
@@ -31,6 +32,7 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
               Text(
                 'Username',
                 style: TimeBoxingTextStyle.headline4(
+                  TimeBoxingFontWeight.bold,
                   TimeBoxingColors.neutralBlack(),
                 ),
               ),
@@ -39,9 +41,15 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
           const Spacer(),
           const Row(
             children: [
-              Icon(Icons.close),
+              Icon(
+                TimeboxingIcons.alarm,
+                size: 16,
+              ),
               SizedBox(width: 12),
-              Icon(Icons.close),
+              Icon(
+                TimeboxingIcons.plusCircle,
+                size: 16,
+              ),
             ],
           )
         ],
