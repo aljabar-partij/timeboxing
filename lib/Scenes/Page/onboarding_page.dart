@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/main_page.dart';
 import 'shared_design_page.dart';
+import 'OnboardingPage/onboarding_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -49,6 +50,25 @@ class OnboardingPage extends StatelessWidget {
                 },
                 child: const Text(
                   'Main Page',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              ElevatedButton(
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.green),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const OnBoardingPage();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Onvoaeding Page',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
