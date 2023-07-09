@@ -3,6 +3,7 @@ import 'package:timeboxing/Scenes/Page/HomePage/Component/greeting_information.d
 import 'package:timeboxing/Scenes/Page/HomePage/Component/date_pick.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/today_task.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,13 +40,4 @@ class _MyWidgetState extends State<HomePage> {
       ),
     );
   }
-}
-
-class TimeboxingHomePlaceholder {
-  String id;
-  bool isShow;
-  Widget widget;
-
-  TimeboxingHomePlaceholder(
-      {required this.id, required this.isShow, required this.widget});
 }
