@@ -4,6 +4,23 @@ import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/greeting_info_model.dart';
 
+class GreetingsItem {
+  String username;
+  String greetingMessage;
+
+  GreetingsItem({
+    required this.username,
+    required this.greetingMessage,
+  });
+}
+
+final List<GreetingsItem> greetingItems = [
+  GreetingsItem(
+    username: 'JordyNoSkill',
+    greetingMessage: 'Have A Great Day Jord',
+  )
+];
+
 class TimeboxingGreetingInfo extends StatefulWidget {
   const TimeboxingGreetingInfo({super.key});
 
