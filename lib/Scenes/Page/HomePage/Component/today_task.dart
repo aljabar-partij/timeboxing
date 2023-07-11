@@ -18,19 +18,53 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
           color: TimeBoxingColors.neutralWhite(),
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Row(
+        child: Column(
           children: [
-            Text(
-              'Ini Section Today Task',
-              style: TimeBoxingTextStyle.paragraph2(
-                TimeBoxingFontWeight.regular,
-                TimeBoxingColors.neutralBlack(),
-              ),
+            Row(
+              children: [
+                Container(
+                  height: 17,
+                  width: 52,
+                  decoration: BoxDecoration(
+                      color:
+                          TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                      borderRadius: BorderRadius.circular(4)),
+                  child: Center(
+                      child: Text('Priority',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: TimeBoxingColors.neutralWhite(),
+                          ))),
+                ),
+                Container(
+                  height: 17,
+                  width: 52,
+                  decoration: BoxDecoration(
+                    color: TimeBoxingColors.neutralWhite(),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Center(
+                      child: Text('Time',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: TimeBoxingColors.primary40(
+                                TimeBoxingColorType.shade),
+                          ))),
+                ),
+                const Expanded(
+                    child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text('Juni 23, 2023'),
+                )),
+              ],
             ),
-            const Spacer(),
-            const Icon(Icons.calendar_today),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+              child: Center(
+                child: Text('Jordy Task List'),
+              ),
+            )
           ],
-        ), //SEBELUM DEVELOP, ROW JANGAN LUPA DIHAPUS  KARENA HANYA BUAT PENANDA DOANG
-      );
+        ));
   }
 }
