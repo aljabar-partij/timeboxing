@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
 
 class TimeboxingTodayTask extends StatefulWidget {
@@ -31,9 +32,9 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
                       borderRadius: BorderRadius.circular(4)),
                   child: Center(
                       child: Text('Priority',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: TimeBoxingColors.neutralWhite(),
+                          style: TimeBoxingTextStyle.paragraph4(
+                            TimeBoxingFontWeight.bold,
+                            TimeBoxingColors.neutralWhite(),
                           ))),
                 ),
                 Container(
@@ -45,24 +46,115 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
                   ),
                   child: Center(
                       child: Text('Time',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: TimeBoxingColors.primary40(
+                          style: TimeBoxingTextStyle.paragraph4(
+                            TimeBoxingFontWeight.bold,
+                            TimeBoxingColors.primary40(
                                 TimeBoxingColorType.shade),
                           ))),
                 ),
-                const Expanded(
+                Expanded(
                     child: Align(
                   alignment: Alignment.centerRight,
-                  child: Text('Juni 23, 2023'),
+                  child: Text('June 23, 2023',
+                      style: TimeBoxingTextStyle.paragraph4(
+                        TimeBoxingFontWeight.bold,
+                        TimeBoxingColors.text20(TimeBoxingColorType.shade),
+                      )),
                 )),
               ],
             ),
             Container(
               padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
               child: Center(
-                child: Text('Jordy Task List'),
+                child: Text('Jordys Task List',
+                    style: TimeBoxingTextStyle.headline4(
+                      TimeBoxingFontWeight.bold,
+                      TimeBoxingColors.text90(TimeBoxingColorType.shade),
+                    )),
               ),
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 66,
+                  width: 56,
+                  decoration: BoxDecoration(
+                    color: TimeBoxingColors.rainbow1(),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Column(
+                    children: [
+                      Center(
+                          child: Text('P0',
+                              style: TimeBoxingTextStyle.headline2(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite(),
+                              ))),
+                      Center(
+                          child: Text('Very High',
+                              style: TimeBoxingTextStyle.paragraph5(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite(),
+                              ))),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 9, 0, 9),
+                  child: Column(
+                    children: [
+                      Container(
+                          height: 66,
+                          width: 283,
+                          decoration: BoxDecoration(
+                            color: TimeBoxingColors.neutralWhite(),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Task',
+                                      style: TimeBoxingTextStyle.paragraph3(
+                                        TimeBoxingFontWeight.regular,
+                                        TimeBoxingColors.text(
+                                            TimeBoxingColorType.tint),
+                                      )),
+                                  const Spacer(),
+                                  Text('Time',
+                                      style: TimeBoxingTextStyle.paragraph3(
+                                        TimeBoxingFontWeight.bold,
+                                        TimeBoxingColors.text(
+                                            TimeBoxingColorType.tint),
+                                      )),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  const Icon(
+                                    TimeboxingIcons.plusCircle,
+                                    size: 16,
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                color: Colors.grey,
+                                thickness: 2.0,
+                              ),
+                              Text('Description',
+                                  style: TimeBoxingTextStyle.paragraph4(
+                                    TimeBoxingFontWeight.regular,
+                                    TimeBoxingColors.text40(
+                                        TimeBoxingColorType.tint),
+                                  )),
+                            ],
+                          )),
+                    ],
+                  ),
+                )
+              ],
             )
           ],
         ));
