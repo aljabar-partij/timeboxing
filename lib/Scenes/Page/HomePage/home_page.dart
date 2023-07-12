@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/greeting_information.dart';
-import 'package:timeboxing/Scenes/Page/HomePage/Component/date_pick.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/Component/weekly_date_picker_component.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/today_task.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
