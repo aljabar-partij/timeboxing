@@ -57,17 +57,17 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
       final date = _startDate.add(Duration(days: dateIndexed.$1));
       final weekdayName = DateFormat.E()
           .format(_startDate.add(Duration(days: dateIndexed.$1)))[0];
-      final isSelected = date.day == _selectedDate.day;
+      final isSelected = date == _selectedDate;
       return Expanded(
         child: GestureDetector(
           onTap: () => _selectDate(date),
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 color: isSelected
-                    ? TimeBoxingColors.primary50(TimeBoxingColorType.shade)
+                    ? TimeBoxingColors.primary60(TimeBoxingColorType.shade)
                     : null,
               ),
               padding: const EdgeInsets.all(4),
@@ -77,7 +77,9 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
                     weekdayName,
                     textAlign: TextAlign.center,
                     style: TimeBoxingTextStyle.paragraph1(
-                      TimeBoxingFontWeight.bold,
+                      isSelected
+                          ? TimeBoxingFontWeight.bold
+                          : TimeBoxingFontWeight.regular,
                       isSelected
                           ? TimeBoxingColors.neutralWhite()
                           : TimeBoxingColors.neutralBlack(),
@@ -90,7 +92,9 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
                     child: Text(
                       date.day.toString(),
                       style: TimeBoxingTextStyle.paragraph1(
-                        TimeBoxingFontWeight.bold,
+                        isSelected
+                            ? TimeBoxingFontWeight.bold
+                            : TimeBoxingFontWeight.regular,
                         isSelected
                             ? TimeBoxingColors.neutralWhite()
                             : TimeBoxingColors.neutralBlack(),
@@ -188,7 +192,7 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
                       Icons.chevron_right,
                       size: 16,
                       color:
-                          TimeBoxingColors.primary60(TimeBoxingColorType.shade),
+                          TimeBoxingColors.primary50(TimeBoxingColorType.shade),
                     ),
                   ),
                 ),
