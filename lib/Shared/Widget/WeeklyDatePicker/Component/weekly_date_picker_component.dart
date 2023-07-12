@@ -188,7 +188,7 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
                       Icons.chevron_right,
                       size: 16,
                       color:
-                          TimeBoxingColors.primary50(TimeBoxingColorType.shade),
+                          TimeBoxingColors.primary60(TimeBoxingColorType.shade),
                     ),
                   ),
                 ),
