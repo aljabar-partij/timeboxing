@@ -24,7 +24,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
+                  padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
                   decoration: BoxDecoration(
                       color:
                           TimeBoxingColors.primary40(TimeBoxingColorType.shade),
@@ -36,7 +36,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
                       )),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(8, 2, 8, 2),
+                  padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
                   decoration: BoxDecoration(
                     color: TimeBoxingColors.neutralWhite(),
                     borderRadius: BorderRadius.circular(4),
@@ -56,7 +56,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+              padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
               child: Center(
                 child: Text('Jordys Task List',
                     style: TimeBoxingTextStyle.headline4(
