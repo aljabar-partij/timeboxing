@@ -88,7 +88,7 @@ class _MyWidgetState extends State<Task> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 2),
+                  padding: const EdgeInsets.only(bottom: 2),
                   decoration: BoxDecoration(
                       border: Border(
                           bottom: BorderSide(

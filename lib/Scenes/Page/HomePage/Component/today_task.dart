@@ -56,7 +56,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 16, 0, 16),
+              padding: const EdgeInsets.symmetric(vertical: 16),
               child: Center(
                 child: Text('Jordys Task List',
                     style: TimeBoxingTextStyle.headline4(
