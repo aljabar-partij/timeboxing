@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class SharedDesignPage extends StatefulWidget {
   const SharedDesignPage({super.key});

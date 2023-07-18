@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/icons_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
-import 'package:timeboxing/Scenes/Page/HomePage/Model/greeting_info_model.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/Component/GreetingInformation/Model/greeting_info_model.dart';
 
 class TimeboxingGreetingInfo extends StatefulWidget {
   const TimeboxingGreetingInfo({super.key});

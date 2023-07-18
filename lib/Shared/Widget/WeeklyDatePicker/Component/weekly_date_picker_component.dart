@@ -1,121 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
+import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
 
-class WeeklyDatePicker extends StatefulWidget {
+class WeeklyDatePicker extends StatelessWidget {
   const WeeklyDatePicker({super.key});
-
-  @override
-  State<WeeklyDatePicker> createState() => _WeeklyDatePickerState();
-}
-
-class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
-  /// Date Properties
-  DateTime _selectedDate = DateTime.now();
-  DateTime _startDate = DateTime.now();
-  List<DateTime> _dateList = [];
-
-  /// Date Methods
-  DateTime getNearestMonday() {
-    DateTime now = DateTime.now();
-    int currentWeekday = now.weekday;
-    int daysUntilMonday = (currentWeekday + 7 - DateTime.monday) % 7;
-    return now.subtract(Duration(days: daysUntilMonday));
-  }
-
-  List<DateTime> get7DaysAfter(DateTime date) {
-    List<DateTime> dateList = [];
-    for (var i = 0; i < 7; i++) {
-      dateList.add(date.add(Duration(days: i)));
-    }
-    return dateList;
-  }
-
-  void _selectDate(DateTime date) {
-    setState(() {
-      _selectedDate = date;
-    });
-  }
-
-  void _goToPreviousWeek() {
-    setState(() {
-      _startDate = _startDate.subtract(Duration(days: 7));
-      _dateList = get7DaysAfter(_startDate);
-    });
-  }
-
-  void _goToNextWeek() {
-    setState(() {
-      _startDate = _startDate.add(Duration(days: 7));
-      _dateList = get7DaysAfter(_startDate);
-    });
-  }
-
-  List<Widget> _buildWeekdays() {
-    return _dateList.indexed.map((dateIndexed) {
-      final date = _startDate.add(Duration(days: dateIndexed.$1));
-      final weekdayName = DateFormat.E()
-          .format(_startDate.add(Duration(days: dateIndexed.$1)))[0];
-      final isSelected = date == _selectedDate;
-      return Expanded(
-        child: GestureDetector(
-          onTap: () => _selectDate(date),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8, right: 8),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: isSelected
-                    ? TimeBoxingColors.primary60(TimeBoxingColorType.shade)
-                    : null,
-              ),
-              padding: const EdgeInsets.all(4),
-              child: Column(
-                children: [
-                  Text(
-                    weekdayName,
-                    textAlign: TextAlign.center,
-                    style: TimeBoxingTextStyle.paragraph1(
-                      isSelected
-                          ? TimeBoxingFontWeight.bold
-                          : TimeBoxingFontWeight.regular,
-                      isSelected
-                          ? TimeBoxingColors.neutralWhite()
-                          : TimeBoxingColors.neutralBlack(),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Center(
-                    child: Text(
-                      date.day.toString(),
-                      style: TimeBoxingTextStyle.paragraph1(
-                        isSelected
-                            ? TimeBoxingFontWeight.bold
-                            : TimeBoxingFontWeight.regular,
-                        isSelected
-                            ? TimeBoxingColors.neutralWhite()
-                            : TimeBoxingColors.neutralBlack(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-    }).toList();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _startDate = getNearestMonday();
-    _dateList = get7DaysAfter(_startDate);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,19 +19,31 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
             child: Row(
               children: [
                 const Spacer(),
-                Text(
-                  DateFormat.yMMMM().format(_startDate),
-                  style: TimeBoxingTextStyle.paragraph4(
-                    TimeBoxingFontWeight.bold,
-                    TimeBoxingColors.neutralBlack(),
-                  ),
+                BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
+                  builder: (context, state) {
+                    return Text(
+                      DateFormat.yMMMM().format(state.selectedDate),
+                      style: TimeBoxingTextStyle.paragraph4(
+                        TimeBoxingFontWeight.bold,
+                        TimeBoxingColors.neutralBlack(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
           ),
           const SizedBox(height: 4),
-          Row(
-            children: _buildWeekdays(),
+          BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
+            builder: (context, state) {
+              return Row(
+                children: _buildWeekdays(
+                  listDate: state.listDateInfo,
+                  selectedDate: state.selectedDate,
+                  context: context,
+                ),
+              );
+            },
           ),
           const SizedBox(height: 4),
           Padding(
@@ -150,7 +52,8 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
               children: [
                 const Spacer(),
                 GestureDetector(
-                  onTap: () => _goToPreviousWeek(),
+                  onTap: () =>
+                      context.read<WeeklyDatePickerCubit>().goToPreviousWeek(),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -172,9 +75,10 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 4),
+                const SizedBox(width: 8),
                 GestureDetector(
-                  onTap: () => _goToNextWeek(),
+                  onTap: () =>
+                      context.read<WeeklyDatePickerCubit>().goToNextWeek(),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -203,5 +107,69 @@ class _WeeklyDatePickerState extends State<WeeklyDatePicker> {
         ],
       ),
     );
+  }
+
+  /// Private UI Methods
+  List<Widget> _buildWeekdays({
+    required List<WeeklyDatePickerInfo> listDate,
+    required DateTime selectedDate,
+    required BuildContext context,
+  }) {
+    return listDate.indexed.map((dateIndexed) {
+      final date = dateIndexed.$2.date;
+      final dayName = dateIndexed.$2.dayName;
+      final dateNumberString = dateIndexed.$2.dateNumberString;
+      final isSelected = dateIndexed.$2.date == selectedDate;
+
+      return Expanded(
+        child: GestureDetector(
+          onTap: () => context.read<WeeklyDatePickerCubit>().selectDate(date),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8, right: 8),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: isSelected
+                    ? TimeBoxingColors.primary60(TimeBoxingColorType.shade)
+                    : null,
+              ),
+              padding: const EdgeInsets.all(4),
+              child: Column(
+                children: [
+                  Text(
+                    dayName,
+                    textAlign: TextAlign.center,
+                    style: TimeBoxingTextStyle.paragraph1(
+                      isSelected
+                          ? TimeBoxingFontWeight.bold
+                          : TimeBoxingFontWeight.regular,
+                      isSelected
+                          ? TimeBoxingColors.neutralWhite()
+                          : TimeBoxingColors.neutralBlack(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Center(
+                    child: Text(
+                      dateNumberString,
+                      style: TimeBoxingTextStyle.paragraph1(
+                        isSelected
+                            ? TimeBoxingFontWeight.bold
+                            : TimeBoxingFontWeight.regular,
+                        isSelected
+                            ? TimeBoxingColors.neutralWhite()
+                            : TimeBoxingColors.neutralBlack(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }).toList();
   }
 }
