@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/GreetingInformation/greeting_information.dart';
-import 'package:timeboxing/Scenes/Page/HomePage/Component/DatePicker/weekly_date_picker_component.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/InvitationCard/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/TodayTask/today_task.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
@@ -15,13 +14,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<HomePage> {
+  static RecommendationCard recommendationCard = RecommendationCard(
+    id: "",
+    imageUrl:
+        "https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg",
+    text:
+        "Confused prioritizing your activities? Don’t worry, we are here to help you fulfill your daily tasks!",
+    title: "Recommendation For You",
+  );
+
   final List<TimeboxingHomePlaceholder> _placeholders = [
     TimeboxingHomePlaceholder(
         id: 'Greeting', isShow: true, widget: TimeboxingGreetingInfo()),
     TimeboxingHomePlaceholder(
         id: 'InvitationCard', isShow: true, widget: TimeboxingInvitationCard()),
     TimeboxingHomePlaceholder(
-        id: 'TimeBoxing', isShow: true, widget: TimeboxingTodayTask()),
+        id: 'TodayTask', isShow: true, widget: TimeboxingTodayTask()),
+    TimeboxingHomePlaceholder(
+      id: 'Recommendation',
+      isShow: true,
+      widget: RecommendationCardWidget(
+        recommendationCard: recommendationCard,
+      ),
+    ),
   ];
 
   @override
