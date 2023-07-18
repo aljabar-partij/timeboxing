@@ -4,6 +4,7 @@ import 'package:timeboxing/Scenes/Page/HomePage/Component/GreetingInformation/gr
 import 'package:timeboxing/Scenes/Page/HomePage/Component/InvitationCard/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/TodayTask/today_task.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/recomendation_component.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/Model/recommendation_card_model.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
 import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
 
