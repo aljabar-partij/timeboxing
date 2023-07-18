@@ -19,8 +19,6 @@ class _MyWidgetState extends State<HomePage> {
     TimeboxingHomePlaceholder(
         id: 'Greeting', isShow: true, widget: TimeboxingGreetingInfo()),
     TimeboxingHomePlaceholder(
-        id: 'DatePick', isShow: true, widget: TimeboxingDatePick()),
-    TimeboxingHomePlaceholder(
         id: 'InvitationCard', isShow: true, widget: TimeboxingInvitationCard()),
     TimeboxingHomePlaceholder(
         id: 'TimeBoxing', isShow: true, widget: TimeboxingTodayTask()),
