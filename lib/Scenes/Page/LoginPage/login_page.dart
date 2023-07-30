@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/componnent/intro_text.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/componnent/login_form.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/signup_page.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'signup_page.dart';
 import 'componnent/google_button.dart';
 

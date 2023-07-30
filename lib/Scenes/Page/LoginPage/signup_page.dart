@@ -3,8 +3,7 @@ import 'package:timeboxing/Scenes/Page/LoginPage/componnent/google_button.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/componnent/intro_text.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/componnent/signup_form.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -29,16 +28,29 @@ class _SignupPageState extends State<SignupPage> {
                 height: 81,
               ),
               Text(
-                'Welcome to',
+                'Let’s get',
                 style: TimeBoxingTextStyle.headline1Plus(
                     TimeBoxingFontWeight.bold,
                     TimeBoxingColors.text90(TimeBoxingColorType.shade)),
               ),
-              Text(
-                'Timeboxing',
-                style: TimeBoxingTextStyle.headline1Plus(
-                    TimeBoxingFontWeight.bold,
-                    TimeBoxingColors.primary40(TimeBoxingColorType.shade)),
+              Row(
+                children: [
+                  Text(
+                    'this',
+                    style: TimeBoxingTextStyle.headline1Plus(
+                        TimeBoxingFontWeight.bold,
+                        TimeBoxingColors.text90(TimeBoxingColorType.shade)),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    'Started',
+                    style: TimeBoxingTextStyle.headline1Plus(
+                        TimeBoxingFontWeight.bold,
+                        TimeBoxingColors.primary40(TimeBoxingColorType.shade)),
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 25,

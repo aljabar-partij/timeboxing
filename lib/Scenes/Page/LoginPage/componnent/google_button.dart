@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
-import 'package:timeboxing/Shared/Extension/text_style_extension.dart';
+import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class GoogleButton extends StatelessWidget {
@@ -11,7 +10,7 @@ class GoogleButton extends StatelessWidget {
     return GestureDetector(
       onTap: null,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
             color: TimeBoxingColors.neutralWhite(),
             borderRadius: const BorderRadius.all(Radius.circular(4)),
