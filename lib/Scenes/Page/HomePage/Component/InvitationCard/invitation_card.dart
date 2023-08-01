@@ -13,18 +13,60 @@ class TimeboxingInvitationCard extends StatefulWidget {
 }
 
 class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
+  final List<InvitationCard> _invitationCard = [
+    InvitationCard(
+        username: "Galih Clueless",
+        userAvatar:
+            'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+        taskItem: TaskItem(
+          id: '1',
+          name: 'Tutorial Meng-Aim dengan benar',
+          description: 'Harus punya pc bagus',
+          taskPriority: TaskPriority(id: '1', type: TaskPriorityType.p0),
+          time: '08.00 - 09.00',
+          date: 'June 30, 2023',
+        ),
+        sameTaskNumber: 2),
+    InvitationCard(
+        username: "Galih Clueless",
+        userAvatar:
+            'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+        taskItem: TaskItem(
+          id: '2',
+          name: 'Tutorial Meng-Aim dengan benar',
+          description: 'Harus punya pc bagus',
+          taskPriority: TaskPriority(id: '1', type: TaskPriorityType.p0),
+          time: '08.00 - 09.00',
+          date: 'June 30, 2023',
+        ),
+        sameTaskNumber: 2),
+    InvitationCard(
+        username: "Galih Clueless",
+        userAvatar:
+            'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+        taskItem: TaskItem(
+          id: '2',
+          name: 'Tutorial Meng-Aim dengan benar',
+          description: 'Harus punya pc bagus',
+          taskPriority: TaskPriority(id: '1', type: TaskPriorityType.p0),
+          time: '08.00 - 09.00',
+          date: 'June 30, 2023',
+        ),
+        sameTaskNumber: 2),
+  ];
   final InvitationCard invitationCard = InvitationCard(
       username: "Galih Clueless",
       userAvatar:
           'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
       taskItem: TaskItem(
-        id: '1',
+        id: '3',
         name: 'Tutorial Meng-Aim dengan benar',
         description: 'Harus punya pc bagus',
         taskPriority: TaskPriority(id: '1', type: TaskPriorityType.p0),
-        time: '08.00',
-        date: '1 June',
-      ));
+        time: '08.00 - 09.00',
+        date: 'June 30, 2023',
+      ),
+      sameTaskNumber: 2);
 
   @override
   Widget build(BuildContext context) {
@@ -98,36 +140,25 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                             const SizedBox(
                               height: 12,
                             ),
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.rainbow1(),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
+                              child: Text(
+                                invitationCard.taskItem.taskPriority.name,
+                                style: TimeBoxingTextStyle.paragraph4(
+                                    TimeBoxingFontWeight.bold,
+                                    TimeBoxingColors.accent90(
+                                        TimeBoxingColorType.tint)),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 8,
+                            ),
                             Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(8, 2, 8, 2),
-                                  decoration: BoxDecoration(
-                                      color: TimeBoxingColors.rainbow1(),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4))),
-                                  child: Text(
-                                    invitationCard.taskItem.taskPriority.name,
-                                    style: TimeBoxingTextStyle.paragraph4(
-                                        TimeBoxingFontWeight.bold,
-                                        TimeBoxingColors.accent90(
-                                            TimeBoxingColorType.tint)),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.fromLTRB(0, 7, 8, 7),
-                                  width: 4,
-                                  height: 4,
-                                  decoration: BoxDecoration(
-                                      color: TimeBoxingColors.neutralBlack(),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4))),
-                                ),
                                 Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(0, 2, 8, 2),
@@ -210,7 +241,29 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                   ),
                                 )),
                               ],
-                            )
+                            ),
+                            if (invitationCard.sameTaskNumber != 0)
+                              const SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.warning,
+                                  size:
+                                      16, // Adjust the size of the icon as needed
+                                  color: TimeBoxingColors.secondary60(
+                                      TimeBoxingColorType
+                                          .shade), // Set the color of the icon
+                                ),
+                                Text(
+                                  "You already have ${invitationCard.sameTaskNumber} activities taking place at that time.",
+                                  style: TimeBoxingTextStyle.paragraph3(
+                                    TimeBoxingFontWeight.regular,
+                                    TimeBoxingColors.secondary60(
+                                        TimeBoxingColorType.shade),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       )
