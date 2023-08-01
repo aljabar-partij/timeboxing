@@ -4,6 +4,7 @@ import 'package:timeboxing/Scenes/Page/HomePage/Component/GreetingInformation/gr
 import 'package:timeboxing/Scenes/Page/HomePage/Component/InvitationCard/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/TodayTask/today_task.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/RecommendationCard/recomendation_component.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/Component/TutorialCard/tutorial_component.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/recommendation_card_model.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
 import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
@@ -27,17 +28,28 @@ class _MyWidgetState extends State<HomePage> {
 
   final List<TimeboxingHomePlaceholder> _placeholders = [
     TimeboxingHomePlaceholder(
-        id: 'Greeting', isShow: true, widget: TimeboxingGreetingInfo()),
+      id: 'Greeting',
+      isShow: true,
+      widget: TimeboxingGreetingInfo(),
+    ),
     TimeboxingHomePlaceholder(
         id: 'InvitationCard', isShow: true, widget: TimeboxingInvitationCard()),
     TimeboxingHomePlaceholder(
-        id: 'TodayTask', isShow: true, widget: TimeboxingTodayTask()),
+      id: 'TodayTask',
+      isShow: true,
+      widget: TimeboxingTodayTask(),
+    ),
     TimeboxingHomePlaceholder(
       id: 'Recommendation',
       isShow: true,
       widget: RecommendationCardWidget(
         recommendationCard: recommendationCard,
       ),
+    ),
+    TimeboxingHomePlaceholder(
+      id: 'Tutorial',
+      isShow: true,
+      widget: const TutorialCard(),
     ),
   ];
 
