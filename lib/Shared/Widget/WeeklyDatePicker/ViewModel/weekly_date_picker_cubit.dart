@@ -28,10 +28,10 @@ class WeeklyDatePickerCubit extends Cubit<WeeklyDatePickerState> {
     DateTime startDate = state.startDate.subtract(const Duration(days: 7));
     List<WeeklyDatePickerInfo> listDateInfo = _get7DaysAfter(startDate);
 
-    final datePickerState = state.copyWith(
+    final datePickerState = WeeklyDatePickerState(
       selectedDate: selectedDate,
       startDate: startDate,
-      listDate: listDateInfo,
+      listDateInfo: listDateInfo,
     );
 
     emit(datePickerState);
@@ -42,10 +42,10 @@ class WeeklyDatePickerCubit extends Cubit<WeeklyDatePickerState> {
     DateTime startDate = state.startDate.add(const Duration(days: 7));
     List<WeeklyDatePickerInfo> listDateInfo = _get7DaysAfter(startDate);
 
-    final datePickerState = state.copyWith(
+    final datePickerState = WeeklyDatePickerState(
       selectedDate: selectedDate,
       startDate: startDate,
-      listDate: listDateInfo,
+      listDateInfo: listDateInfo,
     );
 
     emit(datePickerState);
