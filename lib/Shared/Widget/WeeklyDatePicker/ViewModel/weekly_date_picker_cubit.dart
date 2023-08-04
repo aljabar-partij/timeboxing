@@ -14,10 +14,10 @@ class WeeklyDatePickerCubit extends Cubit<WeeklyDatePickerState> {
     DateTime startDate = _getNearestMonday(selectedDate);
     List<WeeklyDatePickerInfo> listDateInfo = _get7DaysAfter(startDate);
 
-    final datePickerState = state.copyWith(
+    final datePickerState = WeeklyDatePickerState(
       selectedDate: selectedDate,
       startDate: startDate,
-      listDate: listDateInfo,
+      listDateInfo: listDateInfo,
     );
 
     emit(datePickerState);

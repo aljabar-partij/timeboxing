@@ -19,43 +19,45 @@ class CreationEmptyPriorityComponent extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-                child: Image.network(
-                  'https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg',
-                  width: 112,
-                  height: 60,
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  child: Image.network(
+                    'https://i.kym-cdn.com/entries/icons/original/000/043/403/cover3.jpg',
+                    width: 112,
+                    height: 60,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 16,
-              ),
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Let’s create priority list!',
-                      style: TimeBoxingTextStyle.headline4(
-                          TimeBoxingFontWeight.bold,
-                          TimeBoxingColors.text90(TimeBoxingColorType.shade)),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      'Write all your ideas down below, and arrage them into your best priority list. ',
-                      style: TimeBoxingTextStyle.paragraph3(
-                          TimeBoxingFontWeight.regular,
-                          TimeBoxingColors.text(TimeBoxingColorType.shade)),
-                    ),
-                  ],
+                const SizedBox(
+                  width: 16,
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Let’s create priority list!',
+                        style: TimeBoxingTextStyle.headline4(
+                            TimeBoxingFontWeight.bold,
+                            TimeBoxingColors.text90(TimeBoxingColorType.shade)),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        'Write all your ideas down below, and arrage them into your best priority list. ',
+                        style: TimeBoxingTextStyle.paragraph3(
+                            TimeBoxingFontWeight.regular,
+                            TimeBoxingColors.text(TimeBoxingColorType.shade)),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

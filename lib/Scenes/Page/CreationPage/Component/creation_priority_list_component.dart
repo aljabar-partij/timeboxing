@@ -19,6 +19,7 @@ class _CreationPriorityListComponentState
 
   Widget makeLayout(bool isNeedToMakePanel) {
     if (isNeedToMakePanel) {
+      // More than 6 priority
       return ExpansionPanelList(
         elevation: 0,
         expandedHeaderPadding: EdgeInsets.zero,
@@ -101,36 +102,38 @@ class _CreationPriorityListComponentState
           ),
         ],
       );
+    } else {
+      // Less than 6 priority
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Priority List',
+                  style: TimeBoxingTextStyle.paragraph2(
+                      TimeBoxingFontWeight.bold,
+                      TimeBoxingColors.neutralBlack()),
+                ),
+                Text(
+                  'June 23, 2023',
+                  style: TimeBoxingTextStyle.paragraph4(
+                      TimeBoxingFontWeight.regular,
+                      TimeBoxingColors.text(TimeBoxingColorType.shade)),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            TaskList(taskItems: widget.taskItems)
+          ],
+        ),
+      );
     }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Priority List',
-                style: TimeBoxingTextStyle.paragraph2(
-                    TimeBoxingFontWeight.bold, TimeBoxingColors.neutralBlack()),
-              ),
-              Text(
-                'June 23, 2023',
-                style: TimeBoxingTextStyle.paragraph4(
-                    TimeBoxingFontWeight.regular,
-                    TimeBoxingColors.text(TimeBoxingColorType.shade)),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          TaskList(taskItems: widget.taskItems)
-        ],
-      ),
-    );
   }
 
   @override

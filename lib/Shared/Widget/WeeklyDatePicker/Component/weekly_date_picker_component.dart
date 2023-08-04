@@ -120,47 +120,56 @@ class WeeklyDatePicker extends StatelessWidget {
       final isSelected = dateIndexed.$2.date == selectedDate;
 
       return Expanded(
-        child: GestureDetector(
-          onTap: () => context.read<WeeklyDatePickerCubit>().selectDate(date),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              color: isSelected
-                  ? TimeBoxingColors.primary60(TimeBoxingColorType.shade)
-                  : null,
-            ),
-            padding: const EdgeInsets.all(4),
-            child: Column(
-              children: [
-                Text(
-                  dayName,
-                  textAlign: TextAlign.center,
-                  style: TimeBoxingTextStyle.paragraph1(
-                    isSelected
-                        ? TimeBoxingFontWeight.bold
-                        : TimeBoxingFontWeight.regular,
-                    isSelected
-                        ? TimeBoxingColors.neutralWhite()
-                        : TimeBoxingColors.neutralBlack(),
+        child: SizedBox(
+          height: 64,
+          child: GestureDetector(
+            onTap: () => context.read<WeeklyDatePickerCubit>().selectDate(date),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: isSelected
+                    ? TimeBoxingColors.primary60(TimeBoxingColorType.shade)
+                    : null,
+              ),
+              padding: const EdgeInsets.all(4),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: isSelected
+                        ? Text(
+                            dayName,
+                            style: TimeBoxingTextStyle.paragraph3(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite()),
+                          )
+                        : Text(
+                            dayName,
+                            style: TimeBoxingTextStyle.paragraph4(
+                                TimeBoxingFontWeight.regular,
+                                TimeBoxingColors.neutralBlack()),
+                          ),
                   ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Center(
-                  child: Text(
-                    dateNumberString,
-                    style: TimeBoxingTextStyle.paragraph1(
-                      isSelected
-                          ? TimeBoxingFontWeight.bold
-                          : TimeBoxingFontWeight.regular,
-                      isSelected
-                          ? TimeBoxingColors.neutralWhite()
-                          : TimeBoxingColors.neutralBlack(),
-                    ),
+                  const SizedBox(
+                    height: 8,
                   ),
-                ),
-              ],
+                  Center(
+                    child: isSelected
+                        ? Text(
+                            dateNumberString,
+                            style: TimeBoxingTextStyle.paragraph3(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite()),
+                          )
+                        : Text(
+                            dateNumberString,
+                            style: TimeBoxingTextStyle.paragraph4(
+                                TimeBoxingFontWeight.regular,
+                                TimeBoxingColors.neutralBlack()),
+                          ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
