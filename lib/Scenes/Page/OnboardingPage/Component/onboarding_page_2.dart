@@ -59,11 +59,15 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                           borderRadius: const BorderRadius.all(
                             Radius.circular(16),
                           ),
-                          child: Image.network(
-                              width: 302,
-                              height: 400,
-                              fit: BoxFit.fill,
-                              'https://www.american-time.com/wp-content/uploads/2021/02/91-National-24V-12in-Black-Steel-Round-Flush-Mount.jpg'),
+                          child: ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16)),
+                            child: Image.network(
+                                width: 302,
+                                height: 400,
+                                fit: BoxFit.fill,
+                                'https://www.american-time.com/wp-content/uploads/2021/02/91-National-24V-12in-Black-Steel-Round-Flush-Mount.jpg'),
+                          ),
                         ),
                       ),
                     ),
