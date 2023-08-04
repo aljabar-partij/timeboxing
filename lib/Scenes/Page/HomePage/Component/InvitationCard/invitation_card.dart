@@ -74,8 +74,8 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
       child: Row(
         children: [
           Container(
-            width: 6,
-            color: TimeBoxingColors.primary80(TimeBoxingColorType.shade),
+            width: 16,
+            color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
           ),
           Expanded(
             child: Container(
@@ -90,12 +90,13 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                           onTap: null,
                           child: Row(
                             children: [
-                              Text('See More',
+                              Text('see more',
                                   style: TimeBoxingTextStyle.paragraph5(
                                       TimeBoxingFontWeight.regular,
                                       TimeBoxingColors.rainbow1())),
                               Icon(
                                 Icons.chevron_right,
+                                size: 12,
                                 color: TimeBoxingColors.rainbow1(),
                               ),
                             ],
@@ -269,6 +270,69 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                       )
                     ],
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                          child: Row(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                                color: TimeBoxingColors.primary70(
+                                    TimeBoxingColorType.shade),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4))),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                                color: TimeBoxingColors.text70(
+                                    TimeBoxingColorType.tint),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4))),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                                color: TimeBoxingColors.text70(
+                                    TimeBoxingColorType.tint),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4))),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                                color: TimeBoxingColors.text70(
+                                    TimeBoxingColorType.tint),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4))),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            width: 4,
+                            height: 4,
+                            decoration: BoxDecoration(
+                                color: TimeBoxingColors.text70(
+                                    TimeBoxingColorType.tint),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(4))),
+                          ),
+                        ],
+                      ))
+                    ],
+                  )
                 ],
               ),
             ),
