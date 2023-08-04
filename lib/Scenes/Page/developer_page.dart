@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_first_task.dart';
+import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_1.dart';
 import 'package:timeboxing/Scenes/Page/main_page.dart';
 import 'shared_design_page.dart';
 
@@ -62,7 +62,7 @@ class DeveloperPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const OnboardingPageFirstTask();
+                        return const OnboardingPage1();
                       },
                     ),
                   );
