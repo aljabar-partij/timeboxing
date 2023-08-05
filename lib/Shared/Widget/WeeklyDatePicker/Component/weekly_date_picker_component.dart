@@ -15,24 +15,21 @@ class WeeklyDatePicker extends StatelessWidget {
           color: TimeBoxingColors.primary70(TimeBoxingColorType.tint)),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(right: 0),
-            child: Row(
-              children: [
-                const Spacer(),
-                BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
-                  builder: (context, state) {
-                    return Text(
-                      DateFormat.yMMMM().format(state.selectedDate),
-                      style: TimeBoxingTextStyle.paragraph4(
-                        TimeBoxingFontWeight.bold,
-                        TimeBoxingColors.neutralBlack(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
+          Row(
+            children: [
+              const Spacer(),
+              BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
+                builder: (context, state) {
+                  return Text(
+                    DateFormat.yMMMM().format(state.selectedDate),
+                    style: TimeBoxingTextStyle.paragraph4(
+                      TimeBoxingFontWeight.bold,
+                      TimeBoxingColors.neutralBlack(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
           const SizedBox(height: 8),
           BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
