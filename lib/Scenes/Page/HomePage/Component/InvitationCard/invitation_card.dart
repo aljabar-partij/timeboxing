@@ -171,7 +171,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                   ),
                                 ),
                                 Container(
-                                  margin: const EdgeInsets.fromLTRB(0, 7, 8, 7),
+                                  margin: const EdgeInsets.fromLTRB(0, 8, 8, 8),
                                   width: 4,
                                   height: 4,
                                   decoration: BoxDecoration(
@@ -280,7 +280,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                           child: Row(
                         children: [
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
                             width: 4,
                             height: 4,
                             decoration: BoxDecoration(
@@ -290,7 +290,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                     const BorderRadius.all(Radius.circular(4))),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
                             width: 4,
                             height: 4,
                             decoration: BoxDecoration(
@@ -300,7 +300,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                     const BorderRadius.all(Radius.circular(4))),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
                             width: 4,
                             height: 4,
                             decoration: BoxDecoration(
@@ -310,7 +310,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                     const BorderRadius.all(Radius.circular(4))),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
                             width: 4,
                             height: 4,
                             decoration: BoxDecoration(
@@ -320,7 +320,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                     const BorderRadius.all(Radius.circular(4))),
                           ),
                           Container(
-                            margin: const EdgeInsets.fromLTRB(0, 7, 4, 7),
+                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
                             width: 4,
                             height: 4,
                             decoration: BoxDecoration(
