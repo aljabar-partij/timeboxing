@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_first_task.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class OnboardingPage3 extends StatefulWidget {
@@ -169,20 +170,33 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
                     const SizedBox(
                       height: 48,
                     ),
-                    FittedBox(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            color: TimeBoxingColors.primary30(
-                                TimeBoxingColorType.shade)),
-                        child: Text(
-                          'Continue',
-                          textAlign: TextAlign.center,
-                          style: TimeBoxingTextStyle.headline4(
-                            TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.neutralWhite(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const OnboardingPageFirstTask();
+                            },
+                          ),
+                        );
+                      },
+                      child: FittedBox(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              color: TimeBoxingColors.primary30(
+                                  TimeBoxingColorType.shade)),
+                          child: Text(
+                            'Continue',
+                            textAlign: TextAlign.center,
+                            style: TimeBoxingTextStyle.headline4(
+                              TimeBoxingFontWeight.bold,
+                              TimeBoxingColors.neutralWhite(),
+                            ),
                           ),
                         ),
                       ),
