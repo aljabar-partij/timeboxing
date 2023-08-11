@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_2.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class OnboardingPage1 extends StatefulWidget {
@@ -77,20 +78,33 @@ class _OnboardingPage1State extends State<OnboardingPage1> {
                   const SizedBox(
                     height: 30,
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(8)),
-                      color:
-                          TimeBoxingColors.primary30(TimeBoxingColorType.shade),
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      style: TimeBoxingTextStyle.headline4(
-                          TimeBoxingFontWeight.bold,
-                          TimeBoxingColors.neutralWhite()),
-                      'Get Started',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const OnboardingPage2();
+                          },
+                        ),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
+                        color: TimeBoxingColors.primary30(
+                            TimeBoxingColorType.shade),
+                      ),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        style: TimeBoxingTextStyle.headline4(
+                            TimeBoxingFontWeight.bold,
+                            TimeBoxingColors.neutralWhite()),
+                        'Get Started',
+                      ),
                     ),
                   )
                 ],
