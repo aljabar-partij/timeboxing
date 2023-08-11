@@ -1,6 +1,4 @@
 class RecommendationCard {
-  
-
   RecommendationCard(
       {required this.id,
       required this.title,
