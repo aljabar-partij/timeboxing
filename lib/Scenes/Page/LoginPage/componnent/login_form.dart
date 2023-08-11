@@ -18,7 +18,7 @@ class _LoginFormState extends State<LoginForm> {
   final FocusNode _emailNode = FocusNode();
   bool _passwordFocused = false;
   bool _emailFocused = false;
-  bool _obscureText = false;
+  bool _obscureText = true;
   bool _errorLogin = false;
   String _massageLogin = '';
   void _handleLogInButton() async {
