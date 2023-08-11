@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/HomePage/home_page.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class OnboardingPageFirstTask extends StatefulWidget {
@@ -248,21 +249,33 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
                       const SizedBox(
                         height: 48,
                       ),
-                      FittedBox(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              color: TimeBoxingColors.primary30(
-                                  TimeBoxingColorType.shade)),
-                          child: Text(
-                            'Continue',
-                            textAlign: TextAlign.center,
-                            style: TimeBoxingTextStyle.headline4(
-                              TimeBoxingFontWeight.bold,
-                              TimeBoxingColors.neutralWhite(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const HomePage();
+                              },
+                            ),
+                          );
+                        },
+                        child: FittedBox(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                                color: TimeBoxingColors.primary30(
+                                    TimeBoxingColorType.shade)),
+                            child: Text(
+                              'Continue',
+                              textAlign: TextAlign.center,
+                              style: TimeBoxingTextStyle.headline4(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite(),
+                              ),
                             ),
                           ),
                         ),
@@ -271,13 +284,26 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
                         height: 12,
                       ),
                       Center(
-                        child: FittedBox(
-                          child: Text(
-                            'Skip for now',
-                            textAlign: TextAlign.center,
-                            style: TimeBoxingTextStyle.paragraph1(
-                              TimeBoxingFontWeight.bold,
-                              TimeBoxingColors.text30(TimeBoxingColorType.tint),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const HomePage();
+                                },
+                              ),
+                            );
+                          },
+                          child: FittedBox(
+                            child: Text(
+                              'Skip for now',
+                              textAlign: TextAlign.center,
+                              style: TimeBoxingTextStyle.paragraph1(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.text30(
+                                    TimeBoxingColorType.tint),
+                              ),
                             ),
                           ),
                         ),
@@ -292,7 +318,16 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
               child: Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomePage();
+                        },
+                      ),
+                    );
+                  },
                   child: Column(
                     children: [
                       Container(
