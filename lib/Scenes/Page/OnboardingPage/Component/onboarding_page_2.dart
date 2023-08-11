@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_3.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
@@ -117,7 +118,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const OnboardingPage3();
+                            return const LoginPage();
                           },
                         ),
                       );

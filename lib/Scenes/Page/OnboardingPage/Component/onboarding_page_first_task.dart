@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/home_page.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/main_page.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
@@ -256,7 +257,7 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const MainPage();
+                                return const LoginPage();
                               },
                             ),
                           );
@@ -291,7 +292,7 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const MainPage();
+                                  return const LoginPage();
                                 },
                               ),
                             );
@@ -324,7 +325,7 @@ class _OnboardingPageFirstTaskState extends State<OnboardingPageFirstTask> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const MainPage();
+                          return const LoginPage();
                         },
                       ),
                     );

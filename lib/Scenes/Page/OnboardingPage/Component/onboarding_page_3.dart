@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_first_task.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
@@ -253,7 +254,7 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const OnboardingPageFirstTask();
+                            return const LoginPage();
                           },
                         ),
                       );
