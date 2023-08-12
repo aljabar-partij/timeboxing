@@ -32,15 +32,8 @@ class _LoginFormState extends State<LoginForm> {
         MaterialPageRoute(builder: (context) => const MainPage()),
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        setState(() {
-          _errorLogin = true;
-          _massageLogin = 'Wrong Username Or Password';
-        });
-        print('Wrong password provided for that user.');
-      }
+      print('Failed with error code: ${e.code}');
+      print(e.message);
       _errorLogin = true;
       _massageLogin = 'Wrong Username Or Password';
     }
@@ -161,7 +154,6 @@ class _LoginFormState extends State<LoginForm> {
         ),
         GestureDetector(
           onTap: () {
-            // print(true);
             _handleLogInButton();
           },
           child: Container(

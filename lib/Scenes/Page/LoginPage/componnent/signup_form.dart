@@ -22,24 +22,20 @@ class _SignupFormState extends State<SignupForm> {
   bool _emailFocused = false;
   bool _obscureText = true;
 
-  void _HandleSignUpButton() async {
+  void _handleSignUpButton() async {
     try {
       UserCredential signupUser =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text,
         password: _passwordController.text,
       );
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
+      print('Failed with error code: ${e.code}');
+      print(e.message);
     } catch (e) {
       print(e);
     }
@@ -62,11 +58,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_usernameNode.hasFocus) {
-              _usernameNode
-                  .unfocus();
+              _usernameNode.unfocus();
             } else {
-              _usernameNode
-                  .requestFocus(); 
+              _usernameNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -108,11 +102,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_usernameNode.hasFocus) {
-              _emailNode
-                  .unfocus(); 
+              _emailNode.unfocus();
             } else {
-              _emailNode
-                  .requestFocus(); 
+              _emailNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -154,11 +146,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_passwordNode.hasFocus) {
-              _passwordNode
-                  .unfocus(); 
+              _passwordNode.unfocus();
             } else {
-              _passwordNode
-                  .requestFocus(); 
+              _passwordNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -213,7 +203,7 @@ class _SignupFormState extends State<SignupForm> {
         ),
         GestureDetector(
           onTap: () {
-            _HandleSignUpButton();
+            _handleSignUpButton();
           },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12),
