@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Component/task_list.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Model/task_item_model.dart';
+import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
 
 class CreationPriorityListComponent extends StatefulWidget {
   const CreationPriorityListComponent({super.key, required this.taskItems});
@@ -80,11 +83,17 @@ class _CreationPriorityListComponentState
                         const SizedBox(
                           width: 8,
                         ),
-                        Text(
-                          'June 23, 2023',
-                          style: TimeBoxingTextStyle.paragraph4(
-                              TimeBoxingFontWeight.regular,
-                              TimeBoxingColors.text(TimeBoxingColorType.shade)),
+                        BlocBuilder<WeeklyDatePickerCubit,
+                            WeeklyDatePickerState>(
+                          builder: (context, state) {
+                            return Text(
+                              DateFormat.yMMMMd().format(state.selectedDate),
+                              style: TimeBoxingTextStyle.paragraph4(
+                                  TimeBoxingFontWeight.regular,
+                                  TimeBoxingColors.text(
+                                      TimeBoxingColorType.shade)),
+                            );
+                          },
                         ),
                       ],
                     )
@@ -118,11 +127,15 @@ class _CreationPriorityListComponentState
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.neutralBlack()),
                 ),
-                Text(
-                  'June 23, 2023',
-                  style: TimeBoxingTextStyle.paragraph4(
-                      TimeBoxingFontWeight.regular,
-                      TimeBoxingColors.text(TimeBoxingColorType.shade)),
+                BlocBuilder<WeeklyDatePickerCubit, WeeklyDatePickerState>(
+                  builder: (context, state) {
+                    return Text(
+                      DateFormat.yMMMMd().format(state.selectedDate),
+                      style: TimeBoxingTextStyle.paragraph4(
+                          TimeBoxingFontWeight.regular,
+                          TimeBoxingColors.text(TimeBoxingColorType.shade)),
+                    );
+                  },
                 ),
               ],
             ),
@@ -139,7 +152,7 @@ class _CreationPriorityListComponentState
   @override
   void initState() {
     super.initState();
-    isNeedToMakePanel = widget.taskItems.length > 4;
+    isNeedToMakePanel = widget.taskItems.length > 6;
   }
 
   @override

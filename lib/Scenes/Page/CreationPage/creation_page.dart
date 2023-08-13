@@ -39,7 +39,9 @@ class CreationPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               child: const WeeklyDatePicker(),
             ),
+            // Priority List
             const CreationListComponent(),
+            // Brain Dump
             const CreationBrainDumpComponent()
           ],
         ),
