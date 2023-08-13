@@ -52,16 +52,13 @@ class _TimeboxingTodayTaskState extends State<TaskList> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: todayTasks
-            .map((todayTask) => TaskPriorityCell(
-                  taskItems: todayTask.taskItems,
-                  taskPriority: todayTask.taskPriority,
-                ))
-            .toList(),
-      ),
+    return Column(
+      children: todayTasks
+          .map((todayTask) => TaskPriorityCell(
+                taskItems: todayTask.taskItems,
+                taskPriority: todayTask.taskPriority,
+              ))
+          .toList(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/GreetingInformation/greeting_information.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/InvitationCard/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Component/TodayTask/today_task.dart';
@@ -7,7 +6,6 @@ import 'package:timeboxing/Scenes/Page/HomePage/Component/RecommendationCard/rec
 import 'package:timeboxing/Scenes/Page/HomePage/Component/TutorialCard/tutorial_component.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/recommendation_card_model.dart';
 import 'package:timeboxing/Scenes/Page/HomePage/Model/home_model.dart';
-import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,24 +53,17 @@ class _MyWidgetState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => WeeklyDatePickerCubit(),
-        ),
-      ],
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: _placeholders.map((data) {
-              if (data.isShow) {
-                return data.widget;
-              }
-              return Container();
-            }).toList(),
-          ),
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: _placeholders.map((data) {
+            if (data.isShow) {
+              return data.widget;
+            }
+            return Container();
+          }).toList(),
         ),
       ),
     );
