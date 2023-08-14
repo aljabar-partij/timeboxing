@@ -11,7 +11,7 @@ class TimeboxingGreetingInfo extends StatefulWidget {
 
 class _MyWidgetState extends State<TimeboxingGreetingInfo> {
   final _greetingInfo = GreetingInfo(
-    greetingMessage: 'Haloo mas mas biasa bangun anjing',
+    greetingMessage: 'Haloo mas mas biasa bangun',
     username: 'JordyNoSkill',
   );
   @override
@@ -48,7 +48,6 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
               ],
             ),
           ),
-          const Spacer(),
           Row(
             children: [
               Icon(

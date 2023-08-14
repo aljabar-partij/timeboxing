@@ -11,7 +11,7 @@ class RecommendationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 24),
+      margin: const EdgeInsets.only(top: 16),
       color: TimeBoxingColors.neutralWhite(),
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
       child: Column(
@@ -67,10 +67,10 @@ class RecommendationCardWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(
-                    Icons.note,
+                    Icons.content_paste,
                     size: 24,
                     color:
-                        TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                        TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                   ),
                   const SizedBox(
                     width: 8,
@@ -83,7 +83,7 @@ class RecommendationCardWidget extends StatelessWidget {
                           "Go to todo list now",
                           style: TimeBoxingTextStyle.paragraph4(
                             TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.primary40(
+                            TimeBoxingColors.primary30(
                                 TimeBoxingColorType.shade),
                           ),
                         ),
@@ -101,7 +101,7 @@ class RecommendationCardWidget extends StatelessWidget {
                     Icons.chevron_right,
                     size: 16,
                     color:
-                        TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                        TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                   )
                 ],
               ),

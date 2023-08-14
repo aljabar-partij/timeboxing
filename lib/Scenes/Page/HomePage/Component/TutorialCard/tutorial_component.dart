@@ -49,7 +49,7 @@ class _MyWidgetState extends State<TutorialCard> {
           ),
         ],
       ),
-      margin: const EdgeInsets.only(top: 24),
+      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
