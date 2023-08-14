@@ -156,43 +156,39 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                               ),
                             ),
                             const SizedBox(
-                              width: 8,
+                              height: 8,
                             ),
                             Row(
                               children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 2, 8, 2),
-                                  child: Text(
-                                    invitationCard.taskItem.date,
-                                    style: TimeBoxingTextStyle.paragraph3(
-                                        TimeBoxingFontWeight.bold,
-                                        TimeBoxingColors.neutralBlack()),
+                                Text(
+                                  invitationCard.taskItem.date,
+                                  style: TimeBoxingTextStyle.paragraph3(
+                                      TimeBoxingFontWeight.bold,
+                                      TimeBoxingColors.neutralBlack()),
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                Icon(
+                                  Icons.circle,
+                                  size: 2,
+                                  color: TimeBoxingColors.primary80(
+                                    TimeBoxingColorType.shade,
                                   ),
                                 ),
-                                Container(
-                                  margin: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-                                  width: 4,
-                                  height: 4,
-                                  decoration: BoxDecoration(
-                                      color: TimeBoxingColors.neutralBlack(),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4))),
+                                const SizedBox(
+                                  width: 8,
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                                  child: Text(
-                                    invitationCard.taskItem.time,
-                                    style: TimeBoxingTextStyle.paragraph3(
-                                        TimeBoxingFontWeight.regular,
-                                        TimeBoxingColors.neutralBlack()),
-                                  ),
+                                Text(
+                                  invitationCard.taskItem.time,
+                                  style: TimeBoxingTextStyle.paragraph3(
+                                      TimeBoxingFontWeight.regular,
+                                      TimeBoxingColors.neutralBlack()),
                                 ),
                               ],
                             ),
                             const SizedBox(
-                              height: 20,
+                              height: 8,
                             ),
                             Row(
                               children: [
@@ -244,7 +240,7 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                               ],
                             ),
                             if (invitationCard.sameTaskNumber != 0)
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 8),
                             Row(
                               children: [
                                 Icon(

@@ -28,8 +28,11 @@ class _MyWidgetState extends State<TutorialItem> {
                     color: TimeBoxingColors.primary50(TimeBoxingColorType.tint),
                     borderRadius: const BorderRadius.all(Radius.circular(4)),
                   ),
-                  child: Image.network(
-                      fit: BoxFit.fill, widget.tutorialModel.image),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network(
+                        fit: BoxFit.fill, widget.tutorialModel.image),
+                  ),
                 ),
                 const SizedBox(
                   width: 24,

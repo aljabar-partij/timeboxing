@@ -33,7 +33,12 @@ class RecommendationCardWidget extends StatelessWidget {
               color: TimeBoxingColors.primary50(TimeBoxingColorType.tint),
               borderRadius: const BorderRadius.all(Radius.circular(4)),
             ),
-            child: Image.network(fit: BoxFit.fill, recommendationCard.imageUrl),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Image.network(
+                  fit: BoxFit.fill,
+                  recommendationCard.imageUrl,
+                )),
           ),
           const SizedBox(
             height: 24,

@@ -101,6 +101,9 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
                         TimeBoxingColors.neutralWhite(),
                       )),
                 ),
+                const SizedBox(
+                  width: 4,
+                ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
                   decoration: BoxDecoration(
@@ -124,7 +127,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Center(
-                child: Text('Today Task',
+                child: Text('Task List',
                     style: TimeBoxingTextStyle.headline4(
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.text90(TimeBoxingColorType.shade),

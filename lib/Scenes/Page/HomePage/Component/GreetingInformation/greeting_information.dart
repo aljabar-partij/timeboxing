@@ -49,14 +49,16 @@ class _MyWidgetState extends State<TimeboxingGreetingInfo> {
             ),
           ),
           const Spacer(),
-          const Row(
+          Row(
             children: [
               Icon(
+                color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
                 TimeboxingIcons.alarm,
                 size: 16,
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Icon(
+                color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
                 TimeboxingIcons.plusCircle,
                 size: 16,
               ),
