@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
+import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_first_task.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
 class OnboardingPage3 extends StatefulWidget {
@@ -169,20 +171,45 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
                     const SizedBox(
                       height: 48,
                     ),
-                    FittedBox(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            color: TimeBoxingColors.primary30(
-                                TimeBoxingColorType.shade)),
-                        child: Text(
-                          'Continue',
-                          textAlign: TextAlign.center,
-                          style: TimeBoxingTextStyle.headline4(
-                            TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.neutralWhite(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const OnboardingPageFirstTask();
+                            },
+                          ),
+                        );
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const OnboardingPageFirstTask();
+                              },
+                            ),
+                          );
+                        },
+                        child: FittedBox(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                                color: TimeBoxingColors.primary30(
+                                    TimeBoxingColorType.shade)),
+                            child: Text(
+                              'Continue',
+                              textAlign: TextAlign.center,
+                              style: TimeBoxingTextStyle.headline4(
+                                TimeBoxingFontWeight.bold,
+                                TimeBoxingColors.neutralWhite(),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -191,13 +218,25 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
                       height: 12,
                     ),
                     Center(
-                      child: FittedBox(
-                        child: Text(
-                          'Skip for now',
-                          textAlign: TextAlign.center,
-                          style: TimeBoxingTextStyle.paragraph1(
-                            TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.text30(TimeBoxingColorType.tint),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const OnboardingPageFirstTask();
+                              },
+                            ),
+                          );
+                        },
+                        child: FittedBox(
+                          child: Text(
+                            'Skip for now',
+                            textAlign: TextAlign.center,
+                            style: TimeBoxingTextStyle.paragraph1(
+                              TimeBoxingFontWeight.bold,
+                              TimeBoxingColors.text30(TimeBoxingColorType.tint),
+                            ),
                           ),
                         ),
                       ),
@@ -210,7 +249,16 @@ class _OnboardingPage3State extends State<OnboardingPage3> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 24),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const LoginPage();
+                          },
+                        ),
+                      );
+                    },
                     child: Column(
                       children: [
                         Container(
