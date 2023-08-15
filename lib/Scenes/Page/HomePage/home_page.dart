@@ -28,14 +28,17 @@ class _MyWidgetState extends State<HomePage> {
     TimeboxingHomePlaceholder(
       id: 'Greeting',
       isShow: true,
-      widget: TimeboxingGreetingInfo(),
+      widget: const TimeboxingGreetingInfo(),
     ),
     TimeboxingHomePlaceholder(
-        id: 'InvitationCard', isShow: true, widget: TimeboxingInvitationCard()),
+      id: 'InvitationCard',
+      isShow: true,
+      widget: const TimeboxingInvitationCard(),
+    ),
     TimeboxingHomePlaceholder(
       id: 'TodayTask',
       isShow: true,
-      widget: TimeboxingTodayTask(),
+      widget: const TimeboxingTodayTask(),
     ),
     TimeboxingHomePlaceholder(
       id: 'Recommendation',
