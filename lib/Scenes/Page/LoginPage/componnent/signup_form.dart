@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -12,10 +14,33 @@ class _SignupFormState extends State<SignupForm> {
   final FocusNode _passwordNode = FocusNode();
   final FocusNode _usernameNode = FocusNode();
   final FocusNode _emailNode = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   bool _passwordFocused = false;
   bool _usernameFocused = false;
   bool _emailFocused = false;
   bool _obscureText = true;
+
+  void _handleSignUpButton() async {
+    try {
+      UserCredential signupUser =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()),
+      );
+    } on FirebaseAuthException catch (e) {
+      print('Failed with error code: ${e.code}');
+      print(e.message);
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   void dispose() {
     _passwordNode.dispose();
@@ -33,11 +58,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_usernameNode.hasFocus) {
-              _usernameNode
-                  .unfocus(); // Remove focus if the container is already focused
+              _usernameNode.unfocus();
             } else {
-              _usernameNode
-                  .requestFocus(); // Request focus when tapping the container
+              _usernameNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -51,6 +74,7 @@ class _SignupFormState extends State<SignupForm> {
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                     width: _usernameNode.hasFocus ? 2 : 0.5)),
             child: TextField(
+              controller: _usernameController,
               focusNode: _usernameNode,
               onTap: () {
                 setState(() {
@@ -60,7 +84,7 @@ class _SignupFormState extends State<SignupForm> {
                 });
               },
               decoration: InputDecoration(
-                labelText: "Name",
+                labelText: "Username",
                 labelStyle: TimeBoxingTextStyle.paragraph1(
                     TimeBoxingFontWeight.regular,
                     TimeBoxingColors.text30(TimeBoxingColorType.tint)),
@@ -78,11 +102,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_usernameNode.hasFocus) {
-              _emailNode
-                  .unfocus(); // Remove focus if the container is already focused
+              _emailNode.unfocus();
             } else {
-              _emailNode
-                  .requestFocus(); // Request focus when tapping the container
+              _emailNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -96,6 +118,7 @@ class _SignupFormState extends State<SignupForm> {
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                     width: _emailNode.hasFocus ? 2 : 0.5)),
             child: TextField(
+              controller: _emailController,
               focusNode: _emailNode,
               onTap: () {
                 setState(() {
@@ -123,11 +146,9 @@ class _SignupFormState extends State<SignupForm> {
         GestureDetector(
           onTap: () {
             if (_passwordNode.hasFocus) {
-              _passwordNode
-                  .unfocus(); // Remove focus if the container is already focused
+              _passwordNode.unfocus();
             } else {
-              _passwordNode
-                  .requestFocus(); // Request focus when tapping the container
+              _passwordNode.requestFocus();
             }
           },
           child: AnimatedContainer(
@@ -141,6 +162,7 @@ class _SignupFormState extends State<SignupForm> {
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                     width: _passwordNode.hasFocus ? 2 : 0.5)),
             child: TextFormField(
+              controller: _passwordController,
               focusNode: _passwordNode,
               onTap: () {
                 setState(() {
@@ -180,7 +202,9 @@ class _SignupFormState extends State<SignupForm> {
           height: 24,
         ),
         GestureDetector(
-          onTap: null,
+          onTap: () {
+            _handleSignUpButton();
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12),
             decoration: BoxDecoration(
@@ -191,7 +215,7 @@ class _SignupFormState extends State<SignupForm> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Sign in',
+                  'Sign Up',
                   style: TimeBoxingTextStyle.headline4(
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.neutralWhite()),
