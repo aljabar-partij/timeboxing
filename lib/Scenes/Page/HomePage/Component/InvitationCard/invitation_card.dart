@@ -181,12 +181,14 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
                                   const SizedBox(
                                     width: 8,
                                   ),
-                                  Icon(
-                                    Icons.circle,
-                                    size: 2,
-                                    color: TimeBoxingColors.primary80(
-                                      TimeBoxingColorType.shade,
-                                    ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: TimeBoxingColors
+                                                .neutralBlack())),
+                                    width: 2,
+                                    height: 2,
                                   ),
                                   const SizedBox(
                                     width: 8,
