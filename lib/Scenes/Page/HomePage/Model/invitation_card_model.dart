@@ -6,10 +6,12 @@ class InvitationCard {
   String username;
   String userAvatar;
   TaskItem taskItem;
+  int sameTaskNumber;
 
   InvitationCard({
     required this.username,
     required this.userAvatar,
     required this.taskItem,
+    required this.sameTaskNumber,
   });
 }

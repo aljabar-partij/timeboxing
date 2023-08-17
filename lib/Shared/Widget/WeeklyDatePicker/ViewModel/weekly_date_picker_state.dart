@@ -23,7 +23,7 @@ class WeeklyDatePickerState {
     return WeeklyDatePickerState(
       selectedDate: selectedDate ?? this.selectedDate,
       startDate: startDate ?? this.startDate,
-      listDateInfo: listDateInfo ?? this.listDateInfo,
+      listDateInfo: listDateInfo,
     );
   }
 }
@@ -34,7 +34,7 @@ class WeeklyDatePickerInfo {
   late String dateNumberString;
 
   WeeklyDatePickerInfo({required this.date}) {
-    dayName = DateFormat.E().format(date)[0];
+    dayName = DateFormat.E().format(date);
     dateNumberString = date.day.toString();
   }
 }
