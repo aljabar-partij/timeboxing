@@ -25,12 +25,18 @@ class _MyWidgetState extends State<TutorialItem> {
                 widget.tutorialModel.image,
               ),
             ),
+            const SizedBox(
+              height: 8,
+            ),
             Text(
               widget.tutorialModel.tittle,
               style: TimeBoxingTextStyle.paragraph2(
                 TimeBoxingFontWeight.bold,
                 TimeBoxingColors.neutralBlack(),
               ),
+            ),
+            const SizedBox(
+              height: 8,
             ),
             Text(
               widget.tutorialModel.description,
