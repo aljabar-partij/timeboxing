@@ -52,7 +52,7 @@ class _TodayTaskComponentState extends State<TodayTaskComponent> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Center(
-            child: Text('Today Task',
+            child: Text('Task List',
                 style: TimeBoxingTextStyle.headline4(
                   TimeBoxingFontWeight.bold,
                   TimeBoxingColors.text90(TimeBoxingColorType.shade),
