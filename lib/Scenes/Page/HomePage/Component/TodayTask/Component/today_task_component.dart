@@ -29,6 +29,9 @@ class _TodayTaskComponentState extends State<TodayTaskComponent> {
                     TimeBoxingColors.neutralWhite(),
                   )),
             ),
+            const SizedBox(
+              width: 16,
+            ),
             Container(
               padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
               decoration: BoxDecoration(
@@ -59,7 +62,25 @@ class _TodayTaskComponentState extends State<TodayTaskComponent> {
                 )),
           ),
         ),
-        TaskList(taskItems: widget.taskItems)
+        TaskList(taskItems: widget.taskItems),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text('Go to TimeBox Creation',
+                style: TimeBoxingTextStyle.paragraph3(
+                  TimeBoxingFontWeight.regular,
+                  TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                )),
+            const SizedBox(
+              width: 8,
+            ),
+            Icon(
+              Icons.play_arrow,
+              size: 12,
+              color: TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+            )
+          ],
+        )
       ],
     );
   }
