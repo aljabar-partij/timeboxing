@@ -11,8 +11,17 @@ class RecommendationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: TimeBoxingColors.neutralWhite(),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 0),
+            color: TimeBoxingColors.neutralBlack().withOpacity(0.08),
+            blurRadius: 8,
+          ),
+        ],
+      ),
       margin: const EdgeInsets.only(top: 16),
-      color: TimeBoxingColors.neutralWhite(),
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -82,6 +82,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
       decoration: BoxDecoration(
         color: TimeBoxingColors.neutralWhite(),
