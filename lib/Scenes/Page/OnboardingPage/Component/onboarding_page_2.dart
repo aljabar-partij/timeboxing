@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_3.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 
@@ -73,21 +74,33 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                       ),
                     ),
                     const Spacer(),
-                    FittedBox(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8)),
-                            color: TimeBoxingColors.primary30(
-                                TimeBoxingColorType.shade)),
-                        child: Text(
-                          'Continue',
-                          textAlign: TextAlign.center,
-                          style: TimeBoxingTextStyle.headline4(
-                            TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.neutralWhite(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const OnboardingPage3();
+                            },
+                          ),
+                        );
+                      },
+                      child: FittedBox(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(8)),
+                              color: TimeBoxingColors.primary30(
+                                  TimeBoxingColorType.shade)),
+                          child: Text(
+                            'Continue',
+                            textAlign: TextAlign.center,
+                            style: TimeBoxingTextStyle.headline4(
+                              TimeBoxingFontWeight.bold,
+                              TimeBoxingColors.neutralWhite(),
+                            ),
                           ),
                         ),
                       ),
@@ -105,7 +118,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const OnboardingPage3();
+                            return const LoginPage();
                           },
                         ),
                       );
