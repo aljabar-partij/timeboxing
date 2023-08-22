@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/modelComponent/signup_form_cubit.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -11,9 +11,6 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
-  final FocusNode _passwordNode = FocusNode();
-  final FocusNode _usernameNode = FocusNode();
-  final FocusNode _emailNode = FocusNode();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
@@ -21,33 +18,6 @@ class _SignupFormState extends State<SignupForm> {
   bool _usernameFocused = false;
   bool _emailFocused = false;
   bool _obscureText = true;
-
-  void _handleSignUpButton() async {
-    try {
-      UserCredential signupUser =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
-      );
-    } on FirebaseAuthException catch (e) {
-      print('Failed with error code: ${e.code}');
-      print(e.message);
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  @override
-  void dispose() {
-    _passwordNode.dispose();
-    _usernameNode.dispose();
-    _emailNode.dispose();
-    super.dispose();
-  }
 
   Widget build(BuildContext context) {
     return Form(
@@ -57,11 +27,9 @@ class _SignupFormState extends State<SignupForm> {
       children: [
         GestureDetector(
           onTap: () {
-            if (_usernameNode.hasFocus) {
-              _usernameNode.unfocus();
-            } else {
-              _usernameNode.requestFocus();
-            }
+            _usernameFocused = true;
+            _passwordFocused = false;
+            _emailFocused = false;
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
@@ -72,10 +40,9 @@ class _SignupFormState extends State<SignupForm> {
                 border: Border.all(
                     color:
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
-                    width: _usernameNode.hasFocus ? 2 : 0.5)),
+                    width: _usernameFocused ? 2 : 0.5)),
             child: TextField(
               controller: _usernameController,
-              focusNode: _usernameNode,
               onTap: () {
                 setState(() {
                   _usernameFocused = true;
@@ -101,11 +68,9 @@ class _SignupFormState extends State<SignupForm> {
         ),
         GestureDetector(
           onTap: () {
-            if (_usernameNode.hasFocus) {
-              _emailNode.unfocus();
-            } else {
-              _emailNode.requestFocus();
-            }
+            _emailFocused = true;
+            _passwordFocused = false;
+            _usernameFocused = false;
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
@@ -116,10 +81,9 @@ class _SignupFormState extends State<SignupForm> {
                 border: Border.all(
                     color:
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
-                    width: _emailNode.hasFocus ? 2 : 0.5)),
+                    width: _emailFocused ? 2 : 0.5)),
             child: TextField(
               controller: _emailController,
-              focusNode: _emailNode,
               onTap: () {
                 setState(() {
                   _emailFocused = true;
@@ -145,11 +109,9 @@ class _SignupFormState extends State<SignupForm> {
         ),
         GestureDetector(
           onTap: () {
-            if (_passwordNode.hasFocus) {
-              _passwordNode.unfocus();
-            } else {
-              _passwordNode.requestFocus();
-            }
+            _passwordFocused = true;
+            _usernameFocused = false;
+            _emailFocused = false;
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
@@ -160,10 +122,9 @@ class _SignupFormState extends State<SignupForm> {
                 border: Border.all(
                     color:
                         TimeBoxingColors.primary30(TimeBoxingColorType.shade),
-                    width: _passwordNode.hasFocus ? 2 : 0.5)),
+                    width: _passwordFocused ? 2 : 0.5)),
             child: TextFormField(
               controller: _passwordController,
-              focusNode: _passwordNode,
               onTap: () {
                 setState(() {
                   _passwordFocused = true;
@@ -203,7 +164,9 @@ class _SignupFormState extends State<SignupForm> {
         ),
         GestureDetector(
           onTap: () {
-            _handleSignUpButton();
+            context
+                .read<SignupFormCubit>()
+                .signupPressed(_emailController.text, _passwordController.text, _usernameController.text);
           },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Scenes/Page/main_page.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/modelComponent/login_form_cubit.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -11,7 +11,6 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final FocusNode _passwordNode = FocusNode();
@@ -19,33 +18,7 @@ class _LoginFormState extends State<LoginForm> {
   bool _passwordFocused = false;
   bool _emailFocused = false;
   bool _obscureText = true;
-  bool _errorLogin = false;
-  String _massageLogin = '';
-  void _handleLogInButton() async {
-    try {
-      UserCredential user = await _auth.signInWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MainPage()),
-      );
-    } on FirebaseAuthException catch (e) {
-      print('Failed with error code: ${e.code}');
-      print(e.message);
-      _errorLogin = true;
-      _massageLogin = 'Wrong Username Or Password';
-    }
-  }
-
   @override
-  void dispose() {
-    _passwordNode.dispose();
-    _emailNode.dispose();
-    super.dispose();
-  }
-
   Widget build(BuildContext context) {
     return Form(
         child: Column(
@@ -149,12 +122,55 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
         ),
+        BlocBuilder<LoginFormCubit, LoginFormState>(
+          builder: (context, state) {
+            if (state.erroLogin) {
+              return Column(
+                children: [
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.warning_amber_rounded,
+                        color: TimeBoxingColors.secondary50(
+                            TimeBoxingColorType.shade),
+                      ),
+                      Text(
+                        'The username or password you entered is incorrect.',
+                        style: TimeBoxingTextStyle.paragraph4(
+                            TimeBoxingFontWeight.regular,
+                            TimeBoxingColors.secondary60(
+                                TimeBoxingColorType.shade)),
+                      ),
+                    ],
+                  ),
+                ],
+              );
+            }
+            return Container();
+          },
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        GestureDetector(
+            onTap: null,
+            child: Text(
+              'Forgot Your Password?',
+              style: TimeBoxingTextStyle.paragraph3(TimeBoxingFontWeight.bold,
+                  TimeBoxingColors.primary60(TimeBoxingColorType.shade)),
+            )),
         const SizedBox(
           height: 24,
         ),
         GestureDetector(
           onTap: () {
-            _handleLogInButton();
+            context
+                .read<LoginFormCubit>()
+                .loginPressed(_emailController.text, _passwordController.text);
           },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12),

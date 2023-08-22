@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/developer_page.dart';
+import 'package:timeboxing/Scenes/Page/main_page.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 enum NavigationPage { sharedDesign, main }
 
@@ -23,9 +25,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DeveloperPage(),
-    );
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const MaterialApp(
+              home: MainPage(),
+            );
+          }
+          return const MaterialApp(
+            home: LoginPage(),
+          );
+        });
   }
 }
