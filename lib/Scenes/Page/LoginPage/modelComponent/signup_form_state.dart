@@ -1,15 +1,14 @@
 part of 'signup_form_cubit.dart';
 
 class SignupFormState{
-  bool? succesSignup;
+  bool succesSignup = false;
   String? errorMassage;
 
   SignupFormState({
     bool? succesSignup,
-    String? errorMassage
+    this.errorMassage
   }){
-    this.succesSignup = succesSignup ?? false;
-    this.errorMassage = errorMassage ?? '';
+    this.succesSignup = succesSignup ?? this.succesSignup;
   }
 }
 
