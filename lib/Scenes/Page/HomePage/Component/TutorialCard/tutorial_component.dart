@@ -49,8 +49,8 @@ class _MyWidgetState extends State<TutorialCard> {
           ),
         ],
       ),
-      margin: const EdgeInsets.only(top: 24),
-      padding: const EdgeInsets.all(24),
+      margin: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.fromLTRB(24, 24, 12, 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -64,10 +64,15 @@ class _MyWidgetState extends State<TutorialCard> {
           const SizedBox(
             height: 16,
           ),
-          ...tutorialModels
-              .map(
-                  (tutorialModel) => TutorialItem(tutorialModel: tutorialModel))
-              .toList()
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...tutorialModels
+                  .map((tutorialModel) =>
+                      TutorialItem(tutorialModel: tutorialModel))
+                  .toList()
+            ],
+          )
         ],
       ),
     );

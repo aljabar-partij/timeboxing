@@ -11,8 +11,17 @@ class RecommendationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 24),
-      color: TimeBoxingColors.neutralWhite(),
+      decoration: BoxDecoration(
+        color: TimeBoxingColors.neutralWhite(),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 0),
+            color: TimeBoxingColors.neutralBlack().withOpacity(0.08),
+            blurRadius: 8,
+          ),
+        ],
+      ),
+      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -33,7 +42,12 @@ class RecommendationCardWidget extends StatelessWidget {
               color: TimeBoxingColors.primary50(TimeBoxingColorType.tint),
               borderRadius: const BorderRadius.all(Radius.circular(4)),
             ),
-            child: Image.network(fit: BoxFit.fill, recommendationCard.imageUrl),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Image.network(
+                  fit: BoxFit.fill,
+                  recommendationCard.imageUrl,
+                )),
           ),
           const SizedBox(
             height: 24,
@@ -62,10 +76,10 @@ class RecommendationCardWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(
-                    Icons.note,
+                    Icons.content_paste,
                     size: 24,
                     color:
-                        TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                        TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                   ),
                   const SizedBox(
                     width: 8,
@@ -78,7 +92,7 @@ class RecommendationCardWidget extends StatelessWidget {
                           "Go to todo list now",
                           style: TimeBoxingTextStyle.paragraph4(
                             TimeBoxingFontWeight.bold,
-                            TimeBoxingColors.primary40(
+                            TimeBoxingColors.primary30(
                                 TimeBoxingColorType.shade),
                           ),
                         ),
@@ -96,7 +110,7 @@ class RecommendationCardWidget extends StatelessWidget {
                     Icons.chevron_right,
                     size: 16,
                     color:
-                        TimeBoxingColors.primary40(TimeBoxingColorType.shade),
+                        TimeBoxingColors.primary30(TimeBoxingColorType.shade),
                   )
                 ],
               ),
