@@ -12,10 +12,6 @@ class LoginFormCubit extends Cubit<LoginFormState> {
         email: email,
         password: password,
       );
-      final loginForm = LoginFormState(
-        isLogin: true,
-      );
-      emit(loginForm);
     } on FirebaseAuthException catch (eror) {
       final loginFormState = LoginFormState(erroLogin: true);
       emit(loginFormState);
