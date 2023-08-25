@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 81,
+                      height: 80,
                     ),
                     Text(
                       'Welcome to',
@@ -50,12 +50,12 @@ class _LoginPageState extends State<LoginPage> {
                               TimeBoxingColorType.shade)),
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 26,
                     ),
                     const IntroText(
                         text: 'Let’s create your very own account here.'),
                     const SizedBox(
-                      height: 69,
+                      height: 70,
                     ),
                     const GoogleButton(),
                     const SizedBox(
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const LoginForm(),
                     const SizedBox(
-                      height: 19,
+                      height: 20,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,

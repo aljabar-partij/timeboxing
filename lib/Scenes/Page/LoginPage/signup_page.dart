@@ -45,7 +45,7 @@ class _SignupPageState extends State<SignupPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(
-                          height: 81,
+                          height: 80,
                         ),
                         Text(
                           'Let’s get',
@@ -76,13 +76,13 @@ class _SignupPageState extends State<SignupPage> {
                           ],
                         ),
                         const SizedBox(
-                          height: 25,
+                          height: 26,
                         ),
                         const IntroText(
                             text:
                                 "Get back in the driver's seat. Sign in to regain control."),
                         const SizedBox(
-                          height: 69,
+                          height: 70,
                         ),
                         const GoogleButton(),
                         const SizedBox(
