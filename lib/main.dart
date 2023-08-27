@@ -34,7 +34,8 @@ class MyApp extends StatelessWidget {
             );
           }
           return const MaterialApp(
-            home: LoginPage(),
+            debugShowCheckedModeBanner: false,
+            home: DeveloperPage(),
           );
         });
   }
