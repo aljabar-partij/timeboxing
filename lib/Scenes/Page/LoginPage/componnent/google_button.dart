@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:timeboxing/Scenes/Page/LoginPage/modelComponent/login_form_cubit.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({super.key});
@@ -8,7 +10,9 @@ class GoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: null,
+      onTap: () {
+        context.read<LoginFormCubit>().google();
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
