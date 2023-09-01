@@ -5,11 +5,13 @@ class NotificationItem {
   String userAvatar;
   TaskItem taskItem;
   int sameTaskNumber;
+  bool invitationStat;
 
   NotificationItem({
     required this.username,
     required this.userAvatar,
     required this.taskItem,
     required this.sameTaskNumber,
+    required this.invitationStat,
   });
 }

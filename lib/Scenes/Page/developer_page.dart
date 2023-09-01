@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
+import 'package:timeboxing/Scenes/Page/NotificationPage/Component/notification_card.dart';
 import 'package:timeboxing/Scenes/Page/NotificationPage/notification_page.dart';
 import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_1.dart';
 import 'package:timeboxing/Scenes/Page/main_page.dart';
@@ -102,7 +103,7 @@ class DeveloperPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const NotificationPage();
+                        return const Notificationpage();
                       },
                     ),
                   );
