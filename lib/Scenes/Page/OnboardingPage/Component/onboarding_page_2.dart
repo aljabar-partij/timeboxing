@@ -80,7 +80,7 @@ class _OnboardingPage2State extends State<OnboardingPage2> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const OnboardingPage3();
+                              return const LoginPage();
                             },
                           ),
                         );

@@ -166,31 +166,32 @@ class _LoginFormState extends State<LoginForm> {
         const SizedBox(
           height: 24,
         ),
-        GestureDetector(
-          onTap: () {
-            context
-                .read<LoginFormCubit>()
-                .loginPressed(_emailController.text, _passwordController.text);
+        GestureDetector(onTap: () {
+          context
+              .read<LoginFormCubit>()
+              .loginPressed(_emailController.text, _passwordController.text);
+        }, child: BlocBuilder<LoginFormCubit, LoginFormState>(
+          builder: (context, state) {
+            return Container(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: TimeBoxingColors.primary30(TimeBoxingColorType.shade),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    state.isLoading ? 'loading' : 'Sign in',
+                    style: TimeBoxingTextStyle.headline4(
+                        TimeBoxingFontWeight.bold,
+                        TimeBoxingColors.neutralWhite()),
+                  )
+                ],
+              ),
+            );
           },
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: BoxDecoration(
-              color: TimeBoxingColors.primary30(TimeBoxingColorType.shade),
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Sign in',
-                  style: TimeBoxingTextStyle.headline4(
-                      TimeBoxingFontWeight.bold,
-                      TimeBoxingColors.neutralWhite()),
-                )
-              ],
-            ),
-          ),
-        ),
+        )),
       ],
     ));
   }
