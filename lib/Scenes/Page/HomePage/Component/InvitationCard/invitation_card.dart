@@ -70,274 +70,288 @@ class _TimeboxingInvitationCardState extends State<TimeboxingInvitationCard> {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        children: [
-          Container(
-            width: 16,
-            color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
+    return Container(
+      decoration: BoxDecoration(
+        color: TimeBoxingColors.neutralWhite(),
+        boxShadow: [
+          BoxShadow(
+            offset: const Offset(0, 0),
+            color: TimeBoxingColors.neutralBlack().withOpacity(0.08),
+            blurRadius: 8,
           ),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
-              color: TimeBoxingColors.neutralLotion(),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const Spacer(),
-                      GestureDetector(
-                          onTap: null,
-                          child: Row(
-                            children: [
-                              Text('see more',
-                                  style: TimeBoxingTextStyle.paragraph5(
-                                      TimeBoxingFontWeight.regular,
-                                      TimeBoxingColors.rainbow1())),
-                              Icon(
-                                Icons.chevron_right,
-                                size: 12,
-                                color: TimeBoxingColors.rainbow1(),
-                              ),
-                            ],
-                          )),
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundImage:
-                            NetworkImage(invitationCard.userAvatar),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            RichText(
-                                text: TextSpan(
-                                    text: invitationCard.username,
-                                    style: TimeBoxingTextStyle.paragraph2(
-                                        TimeBoxingFontWeight.bold,
-                                        TimeBoxingColors.neutralBlack()),
-                                    children: <TextSpan>[
-                                  TextSpan(
-                                    text: " invites you to join his activity:",
-                                    style: TimeBoxingTextStyle.paragraph2(
-                                        TimeBoxingFontWeight.regular,
-                                        TimeBoxingColors.neutralBlack()),
-                                  )
-                                ])),
-                            Text(
-                              invitationCard.taskItem.name,
-                              style: TimeBoxingTextStyle.paragraph2(
-                                  TimeBoxingFontWeight.bold,
-                                  TimeBoxingColors.neutralBlack()),
-                            ),
-                            const SizedBox(
-                              height: 12,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
-                              decoration: BoxDecoration(
-                                  color: TimeBoxingColors.rainbow1(),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(4))),
-                              child: Text(
-                                invitationCard.taskItem.taskPriority.name,
-                                style: TimeBoxingTextStyle.paragraph4(
-                                    TimeBoxingFontWeight.bold,
-                                    TimeBoxingColors.accent90(
-                                        TimeBoxingColorType.tint)),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            Row(
+        ],
+      ),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Container(
+              width: 16,
+              color: TimeBoxingColors.primary60(TimeBoxingColorType.shade),
+            ),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
+                color: TimeBoxingColors.neutralLotion(),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Spacer(),
+                        GestureDetector(
+                            onTap: null,
+                            child: Row(
                               children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 2, 8, 2),
-                                  child: Text(
+                                Text('see more',
+                                    style: TimeBoxingTextStyle.paragraph5(
+                                        TimeBoxingFontWeight.regular,
+                                        TimeBoxingColors.rainbow1())),
+                                Icon(
+                                  Icons.chevron_right,
+                                  size: 12,
+                                  color: TimeBoxingColors.rainbow1(),
+                                ),
+                              ],
+                            )),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 24,
+                          backgroundImage:
+                              NetworkImage(invitationCard.userAvatar),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              RichText(
+                                  text: TextSpan(
+                                      text: invitationCard.username,
+                                      style: TimeBoxingTextStyle.paragraph2(
+                                          TimeBoxingFontWeight.bold,
+                                          TimeBoxingColors.neutralBlack()),
+                                      children: <TextSpan>[
+                                    TextSpan(
+                                      text:
+                                          " invites you to join his activity:",
+                                      style: TimeBoxingTextStyle.paragraph2(
+                                          TimeBoxingFontWeight.regular,
+                                          TimeBoxingColors.neutralBlack()),
+                                    )
+                                  ])),
+                              Text(
+                                invitationCard.taskItem.name,
+                                style: TimeBoxingTextStyle.paragraph2(
+                                    TimeBoxingFontWeight.bold,
+                                    TimeBoxingColors.neutralBlack()),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(8, 2, 8, 2),
+                                decoration: BoxDecoration(
+                                    color: TimeBoxingColors.rainbow1(),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(4))),
+                                child: Text(
+                                  invitationCard.taskItem.taskPriority.name,
+                                  style: TimeBoxingTextStyle.paragraph4(
+                                      TimeBoxingFontWeight.bold,
+                                      TimeBoxingColors.accent90(
+                                          TimeBoxingColorType.tint)),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
                                     invitationCard.taskItem.date,
                                     style: TimeBoxingTextStyle.paragraph3(
                                         TimeBoxingFontWeight.bold,
                                         TimeBoxingColors.neutralBlack()),
                                   ),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-                                  width: 4,
-                                  height: 4,
-                                  decoration: BoxDecoration(
-                                      color: TimeBoxingColors.neutralBlack(),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4))),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                                  child: Text(
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: TimeBoxingColors
+                                                .neutralBlack())),
+                                    width: 2,
+                                    height: 2,
+                                  ),
+                                  const SizedBox(
+                                    width: 8,
+                                  ),
+                                  Text(
                                     invitationCard.taskItem.time,
                                     style: TimeBoxingTextStyle.paragraph3(
                                         TimeBoxingFontWeight.regular,
                                         TimeBoxingColors.neutralBlack()),
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                    child: GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    decoration: BoxDecoration(
-                                        color: TimeBoxingColors.neutralWhite(),
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                      child: GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      decoration: BoxDecoration(
+                                          color:
+                                              TimeBoxingColors.neutralWhite(),
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(4)),
+                                          border: Border.all(
+                                              color:
+                                                  TimeBoxingColors.secondary80(
+                                                      TimeBoxingColorType
+                                                          .shade),
+                                              width: 1)),
+                                      child: Text('Decline',
+                                          style: TimeBoxingTextStyle.paragraph4(
+                                              TimeBoxingFontWeight.bold,
+                                              TimeBoxingColors.secondary80(
+                                                  TimeBoxingColorType.shade))),
+                                    ),
+                                  )),
+                                  const SizedBox(
+                                    width: 12,
+                                  ),
+                                  Expanded(
+                                      child: GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      decoration: BoxDecoration(
+                                        color: TimeBoxingColors.primary20(
+                                            TimeBoxingColorType.shade),
                                         borderRadius: const BorderRadius.all(
                                             Radius.circular(4)),
-                                        border: Border.all(
-                                            color: TimeBoxingColors.secondary80(
-                                                TimeBoxingColorType.shade),
-                                            width: 1)),
-                                    child: Text('Decline',
-                                        style: TimeBoxingTextStyle.paragraph4(
-                                            TimeBoxingFontWeight.bold,
-                                            TimeBoxingColors.secondary80(
-                                                TimeBoxingColorType.shade))),
-                                  ),
-                                )),
-                                const SizedBox(
-                                  width: 12,
-                                ),
-                                Expanded(
-                                    child: GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    decoration: BoxDecoration(
-                                      color: TimeBoxingColors.primary20(
-                                          TimeBoxingColorType.shade),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(4)),
+                                      ),
+                                      child: Text('Accept',
+                                          style: TimeBoxingTextStyle.paragraph4(
+                                              TimeBoxingFontWeight.bold,
+                                              TimeBoxingColors.primary90(
+                                                  TimeBoxingColorType.tint))),
                                     ),
-                                    child: Text('Accept',
-                                        style: TimeBoxingTextStyle.paragraph4(
-                                            TimeBoxingFontWeight.bold,
-                                            TimeBoxingColors.primary90(
-                                                TimeBoxingColorType.tint))),
+                                  )),
+                                ],
+                              ),
+                              if (invitationCard.sameTaskNumber != 0)
+                                const SizedBox(height: 8),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.warning,
+                                    size:
+                                        16, // Adjust the size of the icon as needed
+                                    color: TimeBoxingColors.secondary60(
+                                        TimeBoxingColorType
+                                            .shade), // Set the color of the icon
                                   ),
-                                )),
-                              ],
+                                  Text(
+                                    "You already have ${invitationCard.sameTaskNumber} activities taking place at that time.",
+                                    style: TimeBoxingTextStyle.paragraph3(
+                                      TimeBoxingFontWeight.regular,
+                                      TimeBoxingColors.secondary60(
+                                          TimeBoxingColorType.shade),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                            child: Row(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                              width: 4,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.primary70(
+                                      TimeBoxingColorType.shade),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
                             ),
-                            if (invitationCard.sameTaskNumber != 0)
-                              const SizedBox(height: 20),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.warning,
-                                  size:
-                                      16, // Adjust the size of the icon as needed
-                                  color: TimeBoxingColors.secondary60(
-                                      TimeBoxingColorType
-                                          .shade), // Set the color of the icon
-                                ),
-                                Text(
-                                  "You already have ${invitationCard.sameTaskNumber} activities taking place at that time.",
-                                  style: TimeBoxingTextStyle.paragraph3(
-                                    TimeBoxingFontWeight.regular,
-                                    TimeBoxingColors.secondary60(
-                                        TimeBoxingColorType.shade),
-                                  ),
-                                ),
-                              ],
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                              width: 4,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.text70(
+                                      TimeBoxingColorType.tint),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                              width: 4,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.text70(
+                                      TimeBoxingColorType.tint),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                              width: 4,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.text70(
+                                      TimeBoxingColorType.tint),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
+                              width: 4,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                  color: TimeBoxingColors.text70(
+                                      TimeBoxingColorType.tint),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(4))),
                             ),
                           ],
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Center(
-                          child: Row(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
-                            width: 4,
-                            height: 4,
-                            decoration: BoxDecoration(
-                                color: TimeBoxingColors.primary70(
-                                    TimeBoxingColorType.shade),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4))),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
-                            width: 4,
-                            height: 4,
-                            decoration: BoxDecoration(
-                                color: TimeBoxingColors.text70(
-                                    TimeBoxingColorType.tint),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4))),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
-                            width: 4,
-                            height: 4,
-                            decoration: BoxDecoration(
-                                color: TimeBoxingColors.text70(
-                                    TimeBoxingColorType.tint),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4))),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
-                            width: 4,
-                            height: 4,
-                            decoration: BoxDecoration(
-                                color: TimeBoxingColors.text70(
-                                    TimeBoxingColorType.tint),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4))),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.fromLTRB(0, 8, 4, 8),
-                            width: 4,
-                            height: 4,
-                            decoration: BoxDecoration(
-                                color: TimeBoxingColors.text70(
-                                    TimeBoxingColorType.tint),
-                                borderRadius:
-                                    const BorderRadius.all(Radius.circular(4))),
-                          ),
-                        ],
-                      ))
-                    ],
-                  )
-                ],
+                        ))
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

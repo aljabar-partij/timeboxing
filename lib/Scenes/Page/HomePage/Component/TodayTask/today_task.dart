@@ -15,61 +15,61 @@ class TimeboxingTodayTask extends StatefulWidget {
 class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
   /// Dummy Properties
   final List<TaskItem> _taskItems = [
-    // TaskItem(
-    //   id: '1',
-    //   name: 'Ngocok bareng',
-    //   description: 'Pake duren',
-    //   time: '08:00',
-    //   date: '1 June',
-    //   taskPriority: TaskPriority(
-    //     id: '1',
-    //     type: TaskPriorityType.p0,
-    //   ),
-    // ),
-    // TaskItem(
-    //   id: '1',
-    //   name: 'Ngocok bareng',
-    //   description: 'Pake duren',
-    //   time: '08:00',
-    //   date: '1 June',
-    //   taskPriority: TaskPriority(
-    //     id: '1',
-    //     type: TaskPriorityType.p0,
-    //   ),
-    // ),
-    // TaskItem(
-    //   id: '1',
-    //   name: 'Ngocok bareng',
-    //   description: 'Pake duren',
-    //   time: '08:00',
-    //   date: '1 June',
-    //   taskPriority: TaskPriority(
-    //     id: '1',
-    //     type: TaskPriorityType.p0,
-    //   ),
-    // ),
-    // TaskItem(
-    //   id: '1',
-    //   name: 'Nopal mimik obat',
-    //   description: 'Pake duren',
-    //   time: '08:00',
-    //   date: '1 June',
-    //   taskPriority: TaskPriority(
-    //     id: '3',
-    //     type: TaskPriorityType.p2,
-    //   ),
-    // ),
-    // TaskItem(
-    //   id: '1',
-    //   name: 'Nopal mimik obat',
-    //   description: 'Pake duren',
-    //   time: '08:00',
-    //   date: '1 June',
-    //   taskPriority: TaskPriority(
-    //     id: '2',
-    //     type: TaskPriorityType.p1,
-    //   ),
-    // ),
+    TaskItem(
+      id: '1',
+      name: 'Ngocok bareng',
+      description: 'Pake duren',
+      time: '08:00',
+      date: '1 June',
+      taskPriority: TaskPriority(
+        id: '1',
+        type: TaskPriorityType.p0,
+      ),
+    ),
+    TaskItem(
+      id: '1',
+      name: 'Ngocok bareng',
+      description: 'Pake duren',
+      time: '08:00',
+      date: '1 June',
+      taskPriority: TaskPriority(
+        id: '1',
+        type: TaskPriorityType.p0,
+      ),
+    ),
+    TaskItem(
+      id: '1',
+      name: 'Ngocok bareng',
+      description: 'Pake duren',
+      time: '08:00',
+      date: '1 June',
+      taskPriority: TaskPriority(
+        id: '1',
+        type: TaskPriorityType.p0,
+      ),
+    ),
+    TaskItem(
+      id: '1',
+      name: 'Nopal mimik obat',
+      description: 'Pake duren',
+      time: '08:00',
+      date: '1 June',
+      taskPriority: TaskPriority(
+        id: '3',
+        type: TaskPriorityType.p2,
+      ),
+    ),
+    TaskItem(
+      id: '1',
+      name: 'Nopal mimik obat',
+      description: 'Pake duren',
+      time: '08:00',
+      date: '1 June',
+      taskPriority: TaskPriority(
+        id: '2',
+        type: TaskPriorityType.p1,
+      ),
+    ),
   ];
 
   Widget _generateLayoutBasedOnTaskItemCount(List<TaskItem> taskItems) {
@@ -82,6 +82,7 @@ class _TimeboxingTodayTaskState extends State<TimeboxingTodayTask> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 16),
       padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
       decoration: BoxDecoration(
         color: TimeBoxingColors.neutralWhite(),

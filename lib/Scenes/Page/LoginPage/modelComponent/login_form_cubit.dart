@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+
 part 'login_form_state.dart';
 
 class LoginFormCubit extends Cubit<LoginFormState> {
@@ -33,4 +34,5 @@ class LoginFormCubit extends Cubit<LoginFormState> {
       print(e);
     }
   }
+
 }
