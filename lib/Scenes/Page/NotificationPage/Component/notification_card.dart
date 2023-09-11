@@ -1,42 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:timeboxing/Scenes/Page/HomePage/Component/InvitationCard/invitation_card.dart';
 import 'package:timeboxing/Scenes/Page/NotificationPage/Model/notification_item.dart';
 import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
-import 'package:timeboxing/Shared/Widget/TaskList/Model/task_item_model.dart';
+import 'package:timeboxing/Scenes/Page/NotificationPage/Model/notification_item.dart';
 
 class NotificationCard extends StatefulWidget {
-  const NotificationCard({super.key});
+  const NotificationCard({super.key, required this.notificationItems});
+  final NotificationItem notificationItems;
 
   @override
   State<NotificationCard> createState() => _MyWidgetState();
 }
 
 class _MyWidgetState extends State<NotificationCard> {
-  final NotificationItem notificationItem = NotificationItem(
-      username: "Galih Clueless",
-      userAvatar:
-          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
-      taskItem: TaskItem(
-        id: '3',
-        name: 'Tutorial Meng-Aim dengan benar',
-        description: 'Harus punya pc bagus',
-        taskPriority: TaskPriority(id: '1', type: TaskPriorityType.p0),
-        time: '08.00 - 09.00',
-        date: 'June 30, 2023',
-      ),
-      invitationStat: false,
-      sameTaskNumber: 2);
-
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: TimeBoxingColors.neutralWhite(),
+        border: Border(
+          bottom: BorderSide(
+            color: TimeBoxingColors.text70(TimeBoxingColorType.tint),
+            width: 0.5,
+          ),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
         child: ListTile(
           leading: CircleAvatar(
             radius: 24,
-            backgroundImage: NetworkImage(notificationItem.userAvatar),
+            backgroundImage: NetworkImage(widget.notificationItems.userAvatar),
           ),
           title: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +38,7 @@ class _MyWidgetState extends State<NotificationCard> {
             children: [
               RichText(
                 text: TextSpan(
-                  text: notificationItem.username,
+                  text: widget.notificationItems.username,
                   style: TimeBoxingTextStyle.paragraph2(
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.neutralBlack()),
@@ -59,7 +53,7 @@ class _MyWidgetState extends State<NotificationCard> {
                 ),
               ),
               Text(
-                notificationItem.taskItem.name,
+                widget.notificationItems.taskItem.name,
                 style: TimeBoxingTextStyle.paragraph2(
                     TimeBoxingFontWeight.bold, TimeBoxingColors.neutralBlack()),
               ),
@@ -72,7 +66,7 @@ class _MyWidgetState extends State<NotificationCard> {
                     color: TimeBoxingColors.rainbow1(),
                     borderRadius: const BorderRadius.all(Radius.circular(4))),
                 child: Text(
-                  notificationItem.taskItem.taskPriority.name,
+                  widget.notificationItems.taskItem.taskPriority.name,
                   style: TimeBoxingTextStyle.paragraph4(
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.accent90(TimeBoxingColorType.tint)),
@@ -84,7 +78,7 @@ class _MyWidgetState extends State<NotificationCard> {
               Row(
                 children: [
                   Text(
-                    notificationItem.taskItem.date,
+                    widget.notificationItems.taskItem.date,
                     style: TimeBoxingTextStyle.paragraph3(
                         TimeBoxingFontWeight.bold,
                         TimeBoxingColors.neutralBlack()),
@@ -104,7 +98,7 @@ class _MyWidgetState extends State<NotificationCard> {
                     width: 8,
                   ),
                   Text(
-                    notificationItem.taskItem.time,
+                    widget.notificationItems.taskItem.time,
                     style: TimeBoxingTextStyle.paragraph3(
                         TimeBoxingFontWeight.regular,
                         TimeBoxingColors.neutralBlack()),
@@ -117,7 +111,7 @@ class _MyWidgetState extends State<NotificationCard> {
               Row(
                 children: [
                   Icon(
-                    notificationItem.invitationStat
+                    widget.notificationItems.invitationStat
                         ? Icons.check_circle_outline
                         : Icons.close_outlined,
                     color: TimeBoxingColors.neutralBlack(),
@@ -127,7 +121,7 @@ class _MyWidgetState extends State<NotificationCard> {
                     width: 4,
                   ),
                   Text(
-                    notificationItem.invitationStat
+                    widget.notificationItems.invitationStat
                         ? 'You Have Accepted this invitation'
                         : 'You Have Declined this invitation',
                     style: TimeBoxingTextStyle.paragraph4(
