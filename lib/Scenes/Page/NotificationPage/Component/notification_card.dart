@@ -28,6 +28,20 @@ class _MyWidgetState extends State<NotificationCard> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
         child: ListTile(
+          trailing: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                widget.notificationItems.invitationStat
+                    ? Icons.chevron_right
+                    : null,
+                size: 30,
+                color: TimeBoxingColors.text90(
+                  TimeBoxingColorType.shade,
+                ),
+              ),
+            ],
+          ),
           leading: CircleAvatar(
             radius: 24,
             backgroundImage: NetworkImage(widget.notificationItems.userAvatar),
