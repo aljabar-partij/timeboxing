@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/NotificationPage/Model/notification_item.dart';
-import 'package:timeboxing/Shared/Extension/colors_style_extension.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
-import 'package:timeboxing/Scenes/Page/NotificationPage/Model/notification_item.dart';
 
 class NotificationCard extends StatefulWidget {
   const NotificationCard({super.key, required this.notificationItems});
