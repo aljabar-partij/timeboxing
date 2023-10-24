@@ -42,7 +42,7 @@ class _InvitationCardPageState extends State<InvitationCardPage> {
                     )
                   ])),
               Text(
-                widget.invitationCard.taskItem.name,
+                widget.invitationCard.taskItem.title,
                 style: TimeBoxingTextStyle.paragraph2(
                     TimeBoxingFontWeight.bold, TimeBoxingColors.neutralBlack()),
               ),
@@ -55,7 +55,7 @@ class _InvitationCardPageState extends State<InvitationCardPage> {
                     color: TimeBoxingColors.rainbow1(),
                     borderRadius: const BorderRadius.all(Radius.circular(4))),
                 child: Text(
-                  widget.invitationCard.taskItem.taskPriority.name,
+                  widget.invitationCard.taskItem.taskPriority?.name ?? '',
                   style: TimeBoxingTextStyle.paragraph4(
                       TimeBoxingFontWeight.bold,
                       TimeBoxingColors.accent90(TimeBoxingColorType.tint)),
@@ -69,7 +69,7 @@ class _InvitationCardPageState extends State<InvitationCardPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 2, 8, 2),
                     child: Text(
-                      widget.invitationCard.taskItem.date,
+                      widget.invitationCard.taskItem.date.toString(),
                       style: TimeBoxingTextStyle.paragraph3(
                           TimeBoxingFontWeight.bold,
                           TimeBoxingColors.neutralBlack()),
@@ -87,7 +87,7 @@ class _InvitationCardPageState extends State<InvitationCardPage> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
                     child: Text(
-                      widget.invitationCard.taskItem.time,
+                      widget.invitationCard.taskItem.date.toString(),
                       style: TimeBoxingTextStyle.paragraph3(
                           TimeBoxingFontWeight.regular,
                           TimeBoxingColors.neutralBlack()),

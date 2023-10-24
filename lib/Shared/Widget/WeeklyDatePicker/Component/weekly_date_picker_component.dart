@@ -5,7 +5,8 @@ import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
 
 class WeeklyDatePicker extends StatelessWidget {
-  const WeeklyDatePicker({super.key});
+  const WeeklyDatePicker({super.key, this.didTapDate});
+  final Function(BuildContext context, DateTime date)? didTapDate;
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +121,10 @@ class WeeklyDatePicker extends StatelessWidget {
         child: SizedBox(
           height: 64,
           child: GestureDetector(
-            onTap: () => context.read<WeeklyDatePickerCubit>().selectDate(date),
+            onTap: () {
+              context.read<WeeklyDatePickerCubit>().selectDate(date);
+              didTapDate!(context, date);
+            },
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),

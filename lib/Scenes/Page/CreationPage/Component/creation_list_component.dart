@@ -1,82 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeboxing/Scenes/Page/CreationPage/Component/creation_empty_priority_component.dart';
 import 'package:timeboxing/Scenes/Page/CreationPage/Component/creation_priority_list_component.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
-import 'package:timeboxing/Shared/Widget/TaskList/Model/task_item_model.dart';
+import 'package:timeboxing/Shared/Widget/TaskForm/ViewModel/cubit/task_item_cubit.dart';
 
-class CreationListComponent extends StatefulWidget {
+class CreationListComponent extends StatelessWidget {
   const CreationListComponent({super.key});
-
-  @override
-  State<CreationListComponent> createState() => _CreationListComponentState();
-}
-
-class _CreationListComponentState extends State<CreationListComponent> {
-  final List<TaskItem> _taskItems = [
-    TaskItem(
-      id: '1',
-      name: 'Ngocok bareng',
-      description: 'Pake duren',
-      time: '08:00',
-      date: '1 June',
-      taskPriority: TaskPriority(
-        id: '1',
-        type: TaskPriorityType.p0,
-      ),
-    ),
-    TaskItem(
-      id: '1',
-      name: 'Ngocok bareng',
-      description: 'Pake duren',
-      time: '08:00',
-      date: '1 June',
-      taskPriority: TaskPriority(
-        id: '1',
-        type: TaskPriorityType.p0,
-      ),
-    ),
-    TaskItem(
-      id: '1',
-      name: 'Ngocok bareng',
-      description: 'Pake duren',
-      time: '08:00',
-      date: '1 June',
-      taskPriority: TaskPriority(
-        id: '1',
-        type: TaskPriorityType.p0,
-      ),
-    ),
-    TaskItem(
-      id: '1',
-      name: 'Nopal mimik obat',
-      description: 'Pake duren',
-      time: '08:00',
-      date: '1 June',
-      taskPriority: TaskPriority(
-        id: '3',
-        type: TaskPriorityType.p2,
-      ),
-    ),
-    TaskItem(
-      id: '1',
-      name: 'Nopal mimik obat',
-      description: 'Pake duren',
-      time: '08:00',
-      date: '1 June',
-      taskPriority: TaskPriority(
-        id: '2',
-        type: TaskPriorityType.p1,
-      ),
-    ),
-  ];
-
-  Widget makeWidgetBasedOnPriorityCount(List<TaskItem> taskItems) {
-    if (taskItems.isNotEmpty) {
-      return CreationPriorityListComponent(taskItems: taskItems);
-    } else {
-      return const CreationEmptyPriorityComponent();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +22,58 @@ class _CreationListComponentState extends State<CreationListComponent> {
             ),
           ],
         ),
-        child: makeWidgetBasedOnPriorityCount(_taskItems));
+        child: BlocBuilder<TaskItemCubit, TaskItemState>(
+          builder: (context, state) {
+            if (state is TaskItemLoaded) {
+              final taskItemsWithPriority = state.taskItems
+                  .where((taskItem) => taskItem.taskPriority != null)
+                  .toList();
+              if (taskItemsWithPriority.isNotEmpty) {
+                return CreationPriorityListComponent(
+                    taskItems: taskItemsWithPriority);
+              } else {
+                return const CreationEmptyPriorityComponent();
+              }
+            }
+
+            if (state is TaskItemLoading) {
+              return const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: CreationPriorityListShimmer(),
+              );
+            }
+            return Container();
+          },
+        ));
+  }
+}
+
+class CreationPriorityListShimmer extends StatelessWidget {
+  const CreationPriorityListShimmer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 56,
+          height: 32,
+          decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              color: TimeBoxingColors.text90(TimeBoxingColorType.tint)),
+        ),
+        const SizedBox(
+          width: 16,
+        ),
+        Expanded(
+          child: Container(
+            height: 32,
+            decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                color: TimeBoxingColors.text90(TimeBoxingColorType.tint)),
+          ),
+        ),
+      ],
+    );
   }
 }

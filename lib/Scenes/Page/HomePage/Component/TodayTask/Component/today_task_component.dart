@@ -3,15 +3,10 @@ import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Component/task_list.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Model/task_item_model.dart';
 
-class TodayTaskComponent extends StatefulWidget {
+class TodayTaskComponent extends StatelessWidget {
   const TodayTaskComponent({super.key, required this.taskItems});
   final List<TaskItem> taskItems;
 
-  @override
-  State<TodayTaskComponent> createState() => _TodayTaskComponentState();
-}
-
-class _TodayTaskComponentState extends State<TodayTaskComponent> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,7 +57,7 @@ class _TodayTaskComponentState extends State<TodayTaskComponent> {
                 )),
           ),
         ),
-        TaskList(taskItems: widget.taskItems),
+        TaskList(taskItems: taskItems),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

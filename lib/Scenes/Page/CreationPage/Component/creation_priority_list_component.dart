@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:timeboxing/Scenes/Page/CreationPage/Component/creation_task_priority_bottomsheet.dart';
+import 'package:timeboxing/Scenes/Page/CreationPage/ViewModel/PrioritySettingReducer/priority_setting_cubit.dart';
 import 'package:timeboxing/Shared/Extension/extension_barrel.dart';
+import 'package:timeboxing/Shared/Widget/TaskForm/ViewModel/cubit/task_item_cubit.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Component/task_list.dart';
 import 'package:timeboxing/Shared/Widget/TaskList/Model/task_item_model.dart';
 import 'package:timeboxing/Shared/Widget/WeeklyDatePicker/ViewModel/weekly_date_picker_cubit.dart';
@@ -18,10 +21,11 @@ class CreationPriorityListComponent extends StatefulWidget {
 class _CreationPriorityListComponentState
     extends State<CreationPriorityListComponent> {
   bool isExpanded = false;
-  late bool isNeedToMakePanel;
 
-  Widget makeLayout(bool isNeedToMakePanel) {
-    if (isNeedToMakePanel) {
+  @override
+  Widget build(BuildContext context) {
+    final taskCount = widget.taskItems.length;
+    if (widget.taskItems.length > 6) {
       // More than 6 priority
       return ExpansionPanelList(
         elevation: 0,
@@ -62,7 +66,7 @@ class _CreationPriorityListComponentState
                                 const BorderRadius.all(Radius.circular(4)),
                           ),
                           child: Text(
-                            '12 Total Priority',
+                            '$taskCount Total Priority',
                             style: TimeBoxingTextStyle.paragraph4(
                                 TimeBoxingFontWeight.regular,
                                 TimeBoxingColors.primary90(
@@ -105,7 +109,38 @@ class _CreationPriorityListComponentState
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: TaskList(taskItems: widget.taskItems),
+                child: TaskList(
+                  taskItems: widget.taskItems,
+                  didTapTask: (taskItem) {
+                    showModalBottomSheet(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(32.0),
+                        ),
+                      ),
+                      context: context,
+                      builder: (_) {
+                        return BlocProvider(
+                          create: (_) =>
+                              PrioritySettingCubit(taskItem: taskItem),
+                          child: CreationTaskPriorityBottomsheet(
+                            taskItem: taskItem,
+                            title: 'Edit Task',
+                            didSuccessSave: () {
+                              final currentDate = context
+                                  .read<WeeklyDatePickerCubit>()
+                                  .state
+                                  .selectedDate;
+                              context
+                                  .read<TaskItemCubit>()
+                                  .getTask(currentDate);
+                            },
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ),
@@ -142,21 +177,38 @@ class _CreationPriorityListComponentState
             const SizedBox(
               height: 16,
             ),
-            TaskList(taskItems: widget.taskItems)
+            TaskList(
+              taskItems: widget.taskItems,
+              didTapTask: (taskItem) {
+                showModalBottomSheet(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(32.0),
+                    ),
+                  ),
+                  context: context,
+                  builder: (_) {
+                    return BlocProvider(
+                      create: (_) => PrioritySettingCubit(taskItem: taskItem),
+                      child: CreationTaskPriorityBottomsheet(
+                        taskItem: taskItem,
+                        title: 'Edit Task',
+                        didSuccessSave: () {
+                          final currentDate = context
+                              .read<WeeklyDatePickerCubit>()
+                              .state
+                              .selectedDate;
+                          context.read<TaskItemCubit>().getTask(currentDate);
+                        },
+                      ),
+                    );
+                  },
+                );
+              },
+            )
           ],
         ),
       );
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    isNeedToMakePanel = widget.taskItems.length > 6;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return makeLayout(isNeedToMakePanel);
   }
 }
