@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeboxing/Scenes/Page/LoginPage/login_page.dart';
 import 'package:timeboxing/Scenes/Page/OnboardingPage/Component/onboarding_page_1.dart';
+import 'package:timeboxing/Scenes/Page/SkeletonPage/skeleton_homepage.dart';
 import 'package:timeboxing/Scenes/Page/main_page.dart';
 import 'shared_design_page.dart';
 
@@ -89,6 +90,25 @@ class DeveloperPage extends StatelessWidget {
                 },
                 child: const Text(
                   'Login Page',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              ElevatedButton(
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.green),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const SkeletonPage();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Skeleton Page',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
